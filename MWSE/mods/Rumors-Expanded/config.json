@@ -99,6 +99,56 @@
         ]
       }
     ],
+    "HT_AurielBow": [
+      {
+        "id": "HT_AurielBow_Kill",
+        "conditions": [
+          { "type": "cell", "comparator": "!=", "value": "Ghostgate" },
+          { "type": "dead", "value": "ralyn othravel" }
+        ]
+      },
+      {
+        "id": "HT_AurielBow_Steal",
+        "conditions": [
+          { "type": "cell", "comparator": "!=", "value": "Ghostgate" },
+          { "type": "dead", "comparator": "!=", "value": "ralyn othravel" }
+        ]
+      }
+    ],
+    "HT_BaladasAlly": [
+      {
+        "id": "HT_BaladasAlly_Commoner",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" }
+        ]
+      },
+      {
+        "id": "HT_BaladasAlly_Telvanni_Gothren_Alive",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" },
+          { "type": "dead", "comparator": "!=", "value": "gothren" }
+        ]
+      },
+      {
+        "id": "HT_BaladasAlly_Telvanni_Gothren_Dead",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" },
+          { "type": "dead", "value": "gothren" }
+        ]
+      },
+      {
+        "id": "HT_BaladasAlly_Hlaalu",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" }
+        ]
+      },
+      {
+        "id": "HT_BaladasAlly_Redoran",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" }
+        ]
+      }
+    ],
     "HT_Odirniran": [
       {
         "id": "HT_Odirniran_Commoner",
