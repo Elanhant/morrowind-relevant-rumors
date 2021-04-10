@@ -1,0 +1,223 @@
+{
+  "responses": {
+    "HT_BlackJinx": [
+      {
+        "id": "HT_BlackJinx_01",
+        "conditions": [
+          { "type": "cell", "value": "Sadrith Mora" },
+          { "type": "faction", "comparator": "!=", "value": "Telvanni" },
+          { "type": "faction", "comparator": "!=", "value": "Morag Tong" }
+        ]
+      },
+      {
+        "id": "HT_BlackJinx_02",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" },
+          { "type": "cell", "comparator": "!=", "value": "Tel Mora" }
+        ]
+      },
+      {
+        "id": "HT_BlackJinx_03",
+        "conditions": [
+          { "type": "cell", "value": "Tel Mora" },
+          { "type": "questCompleted", "comparator": "not_completed", "value": "HT_FleshAmulet" }
+        ]
+      },
+      {
+        "id": "HT_BlackJinx_04",
+        "conditions": [
+          { "type": "cell", "value": "Sadrith Mora" },
+          { "type": "faction", "comparator": "!=", "value": "Telvanni" },
+          { "type": "faction", "comparator": "!=", "value": "Morag Tong" },
+          { "type": "dead", "value": "alven salas"}
+        ]
+      }
+    ],
+    "HT_FleshAmulet": [
+      {
+        "id": "HT_FleshAmulet_01",
+        "conditions": [
+          { "type": "cell", "value": "Sadrith Mora" },
+          { "type": "cell", "comparator": "!=", "value": "Sadrith Mora, Tel Naga" },
+          { "type": "faction", "comparator": "!=", "value": "Telvanni" },
+          { "type": "dead", "value": "berengeval" }
+        ]
+      },
+      {
+        "id": "HT_FleshAmulet_02",
+        "conditions": [
+          { "type": "cell", "value": "Sadrith Mora" },
+          { "type": "cell", "comparator": "!=", "value": "Sadrith Mora, Tel Naga" },
+          { "type": "dead", "comparator": "!=", "value": "neloth" }
+        ]
+      },
+      {
+        "id": "HT_FleshAmulet_03",
+        "conditions": [
+          { "type": "cell", "comparator": "!=", "value": "Sadrith Mora" },
+          { "type": "cell", "comparator": "!=", "value": "Tel Mora" },
+          { "type": "faction", "value": "Telvanni" },
+          { "type": "dead", "value": "berengeval" }
+        ]
+      },
+      {
+        "id": "HT_FleshAmulet_04",
+        "conditions": [
+          { "type": "questCompleted", "value": "HT_BlackJinx" },
+          { "type": "cell", "value": "Tel Mora" }
+        ]
+      },
+      {
+        "id": "HT_FleshAmulet_05",
+        "conditions": [
+          { "type": "questCompleted", "comparator": "not_completed", "value": "HT_BlackJinx" },
+          { "type": "cell", "value": "Tel Mora" }
+        ]
+      }
+    ],
+    "HT_NchuleftKey": [
+      {
+        "id": "HT_NchuleftKey_01",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" },
+          { "type": "dead", "comparator": "!=", "value": "gothren" }
+        ]
+      }
+    ],
+    "HT_DrakePride": [
+      {
+        "id": "HT_DrakePride_Tel_Aruhn",
+        "conditions": [
+          { "type": "cell", "value": "Tel Aruhn" }
+        ]
+      },
+      {
+        "id": "HT_DrakePride_Telvanni_Not_Tel_Aruhn",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" },
+          { "type": "cell", "comparator": "!=", "value": "Tel Aruhn" }
+        ]
+      }
+    ],
+    "HT_Odirniran": [
+      {
+        "id": "HT_Odirniran_Commoner",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" }
+        ]
+      },
+      {
+        "id": "HT_Odirniran_Telvanni",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" }
+        ]
+      },
+      {
+        "id": "HT_Odirniran_Hlaalu",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" }
+        ]
+      },
+      {
+        "id": "HT_Odirniran_Redoran",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" }
+        ]
+      }
+    ],
+    "HT_AttackRethan": [
+      {
+        "id": "HT_AttackRethan_Commoner",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" }
+        ]
+      },
+      {
+        "id": "HT_AttackRethan_Telvanni",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" }
+        ]
+      },
+      {
+        "id": "HT_AttackRethan_Hlaalu",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" }
+        ]
+      },
+      {
+        "id": "HT_AttackRethan_Redoran",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" }
+        ]
+      }
+    ],
+    "HT_AttackIndarys": [
+      {
+        "id": "HT_AttackIndarys_Commoner",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" }
+        ]
+      },
+      {
+        "id": "HT_AttackIndarys_Telvanni",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" }
+        ]
+      },
+      {
+        "id": "HT_AttackIndarys_Hlaalu",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" }
+        ]
+      },
+      {
+        "id": "HT_AttackIndarys_Redoran",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" }
+        ]
+      }
+    ],
+    "HT_Shishi": [
+      {
+        "id": "HT_Shishi_Commoner_Maar_Gan",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" },
+          { "type": "cell", "value": "Maar Gan" }
+        ]
+      },
+      {
+        "id": "HT_Shishi_Commoner_Not_Maar_Gan",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" },
+          { "type": "cell", "comparator": "!=", "value": "Maar Gan" }
+        ]
+      },
+      {
+        "id": "HT_Shishi_Telvanni",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" }
+        ]
+      },
+      {
+        "id": "HT_Shishi_Hlaalu",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" }
+        ]
+      },
+      {
+        "id": "HT_Shishi_Redoran_Not_Maar_Gan",
+        "conditions": [
+          { "type": "faction", "value": "Redoran" },
+          { "type": "cell", "comparator": "!=", "value": "Maar Gan" }
+        ]
+      },
+      {
+        "id": "HT_Shishi_Redoran_Maar_Gan",
+        "conditions": [
+          { "type": "faction", "value": "Redoran" },
+          { "type": "cell", "value": "Maar Gan" }
+        ]
+      }
+    ]
+  }
+}
