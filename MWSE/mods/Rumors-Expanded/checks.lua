@@ -31,9 +31,15 @@ local function checkQuestCompleted(condition)
   end
 end
 
+local function checkJournalStage(condition)
+  local questStage = tes3.getJournalIndex({ id = condition.questId })
+  return questStage == condition.value
+end
+
 this.checkCell = checkCell
 this.checkFaction = checkFaction
 this.checkDead = checkDead
 this.checkQuestCompleted = checkQuestCompleted
+this.checkJournalStage = checkJournalStage
 
 return this

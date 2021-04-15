@@ -29,6 +29,9 @@ local function getQuestRumor(questId, filters)
       elseif (condition.type == 'questCompleted') then
         conditionMatches = checks.checkQuestCompleted(condition)
         print("quest completed check: " .. debug.to_string(conditionMatches))
+      elseif (condition.type == 'journal') then
+        conditionMatches = checks.checkJournalStage(condition)
+        print("journal check: " .. debug.to_string(conditionMatches))
       else
       end
       responseMatches = responseMatches and conditionMatches
@@ -46,6 +49,7 @@ local function getGlobalVarName(questId)
   return "RE_" .. questId .. "_Response"
 end
 
+-- @TODO smart-ish randomiser which tries to pick a response which hadn't been used before (perhaps use pool + random whether to check the pool?)
 local function randomizeResponse(responseCandidates)
   print("randomizeResponse")
   print(debug.to_string(responseCandidates))

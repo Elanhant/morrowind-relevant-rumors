@@ -145,7 +145,7 @@
       {
         "id": "HT_BaladasAlly_Redoran",
         "conditions": [
-          { "type": "faction", "value": "Hlaalu" }
+          { "type": "faction", "value": "Redoran" }
         ]
       }
     ],
@@ -171,7 +171,7 @@
       {
         "id": "HT_Odirniran_Redoran",
         "conditions": [
-          { "type": "faction", "value": "Hlaalu" }
+          { "type": "faction", "value": "Redoran" }
         ]
       }
     ],
@@ -183,12 +183,6 @@
         ]
       },
       {
-        "id": "HT_AttackRethan_Telvanni",
-        "conditions": [
-          { "type": "faction", "value": "Telvanni" }
-        ]
-      },
-      {
         "id": "HT_AttackRethan_Hlaalu",
         "conditions": [
           { "type": "faction", "value": "Hlaalu" }
@@ -197,7 +191,13 @@
       {
         "id": "HT_AttackRethan_Redoran",
         "conditions": [
-          { "type": "faction", "value": "Hlaalu" }
+          { "type": "faction", "value": "Redoran" }
+        ]
+      },
+      {
+        "id": "HT_AttackRethan_Telvanni",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" }
         ]
       }
     ],
@@ -209,12 +209,6 @@
         ]
       },
       {
-        "id": "HT_AttackIndarys_Telvanni",
-        "conditions": [
-          { "type": "faction", "value": "Telvanni" }
-        ]
-      },
-      {
         "id": "HT_AttackIndarys_Hlaalu",
         "conditions": [
           { "type": "faction", "value": "Hlaalu" }
@@ -223,7 +217,13 @@
       {
         "id": "HT_AttackIndarys_Redoran",
         "conditions": [
-          { "type": "faction", "value": "Hlaalu" }
+          { "type": "faction", "value": "Redoran" }
+        ]
+      },
+      {
+        "id": "HT_AttackIndarys_Telvanni",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" }
         ]
       }
     ],
@@ -266,6 +266,85 @@
         "conditions": [
           { "type": "faction", "value": "Redoran" },
           { "type": "cell", "value": "Maar Gan" }
+        ]
+      }
+    ],
+    "HT_RecruitEddie": [
+      {
+        "id": "HT_RecruitEddie_Telvanni",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" }
+        ]
+      }
+    ],
+    "HT_Archmagister": [
+      {
+        "id": "HT_Archmagister_Commoner",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" }
+        ]
+      },
+      {
+        "id": "HT_Archmagister_Hlaalu",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" }
+        ]
+      },
+      {
+        "id": "HT_Archmagister_Redoran",
+        "conditions": [
+          { "type": "faction", "value": "Redoran" }
+        ]
+      },
+      {
+        "id": "HT_Archmagister_Telvanni",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" }
+        ]
+      }
+    ],
+    "HT_EddieRing": [
+      {
+        "id": "HT_EddieRing_Telvanni",
+        "conditions": [
+          { "type": "cell", "comparator": "!=", "value": "Sadrith Mora, Tel Naga" },
+          { "type": "faction", "value": "Telvanni" }
+        ]
+      }
+    ],
+    "HT_SlaveRebellion": [
+      {
+        "id": "HT_SlaveRebellion_Telvanni_SlavesFreed",
+        "conditions": [
+          { "type": "cell", "comparator": "!=", "value": "Tel Branora" },
+          { "type": "faction", "value": "Telvanni" },
+          { "type": "journal", "questId": "HT_SlaveRebellion", "value": 110}
+        ]
+      },
+      {
+        "id": "HT_SlaveRebellion_Telvanni_SlavesKilled",
+        "conditions": [
+          { "type": "cell", "comparator": "!=", "value": "Tel Branora" },
+          { "type": "faction", "value": "Telvanni" },
+          { "type": "journal", "questId": "HT_SlaveRebellion", "value": 100}
+        ]
+      },
+      {
+        "id": "HT_SlaveRebellion_TelBranora_SlavesFreed",
+        "conditions": [
+          { "type": "cell", "value": "Tel Branora" },
+          { "type": "faction", "value": "Telvanni" },
+          { "type": "journal", "questId": "HT_SlaveRebellion", "value": 110},
+          { "type": "dead", "comparator": "!=", "value": "therana" }
+        ]
+      },
+      {
+        "id": "HT_SlaveRebellion_TelBranora_SlavesKilled",
+        "conditions": [
+          { "type": "cell", "value": "Tel Branora" },
+          { "type": "faction", "value": "Telvanni" },
+          { "type": "journal", "questId": "HT_SlaveRebellion", "value": 100},
+          { "type": "dead", "comparator": "!=", "value": "therana" }
         ]
       }
     ]
