@@ -1,7 +1,7 @@
 local this = {}
 local QUEST_COMPLETED_INDEX = 100
 
-local function checkCell(actorCell, condition)
+local function checkCell(condition, actorCell)
   if (condition.comparator == '!=') then
     return not string.startswith(actorCell, condition.value)
   else
@@ -9,7 +9,7 @@ local function checkCell(actorCell, condition)
   end
 end
 
-local function checkFaction(actorFaction, condition)
+local function checkFaction(condition, actorFaction)
   if (condition.value == 'NOT_GREAT_HOUSE') then
     return (actorFaction ~= 'Telvanni') and (actorFaction ~= 'Redoran') and (actorFaction ~= 'Hlaalu')
   else
@@ -36,10 +36,15 @@ local function checkJournalStage(condition)
   return questStage == condition.value
 end
 
+local function checkPCSex(condition)
+  return tes3.mobilePlayer.firstPerson.female == conditon.value
+end
+
 this.checkCell = checkCell
 this.checkFaction = checkFaction
 this.checkDead = checkDead
 this.checkQuestCompleted = checkQuestCompleted
 this.checkJournalStage = checkJournalStage
+this.checkPCSex = checkPCSex
 
 return this

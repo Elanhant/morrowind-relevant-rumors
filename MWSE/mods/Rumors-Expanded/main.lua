@@ -18,10 +18,10 @@ local function getQuestRumor(questId, filters)
     for index,condition in pairs(responseMeta.conditions) do
       local conditionMatches = false
       if (condition.type == 'cell') then
-        conditionMatches = checks.checkCell(filters.actorCell, condition)
+        conditionMatches = checks.checkCell(condition, filters.actorCell)
         print("cell check: " .. debug.to_string(conditionMatches))
       elseif (condition.type == 'faction') then
-        conditionMatches = checks.checkFaction(filters.actorFaction, condition)
+        conditionMatches = checks.checkFaction(condition, filters.actorFaction)
         print("faction check: " .. debug.to_string(conditionMatches))
       elseif (condition.type == 'dead') then
         conditionMatches = checks.checkDead(condition)
@@ -32,6 +32,9 @@ local function getQuestRumor(questId, filters)
       elseif (condition.type == 'journal') then
         conditionMatches = checks.checkJournalStage(condition)
         print("journal check: " .. debug.to_string(conditionMatches))
+      elseif (condition.type == 'pcSex') then
+        conditionMatches = checks.checkPCSex(condition)
+        print("PCSex check: " .. debug.to_string(conditionMatches))
       else
       end
       responseMatches = responseMatches and conditionMatches
@@ -89,6 +92,14 @@ local function getResponseCandidates(mobileActor)
   return responseCandidates
 end
 
+local function resetGlobals()
+  for questId,questResponses in pairs(config.responses) do
+    tes3.messageBox("resetting " .. getGlobalVarName(questId))
+
+    tes3.setGlobal(getGlobalVarName(questId), 0)
+  end
+end
+
 local function onLoaded(e)
   resetGlobals()
   shouldInvalidateCache = true
@@ -97,14 +108,6 @@ end
 local function onJournalUpdate(e)
   if (e.index >= QUEST_COMPLETED_INDEX) then
     shouldInvalidateCache = true
-  end
-end
-
-local function resetGlobals()
-  for questId,questResponses in pairs(config.responses) do
-    tes3.messageBox("resetting " .. getGlobalVarName(questId))
-
-    tes3.setGlobal(getGlobalVarName(questId), 0)
   end
 end
 
