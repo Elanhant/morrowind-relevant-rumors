@@ -7,21 +7,24 @@
           { "type": "cell", "value": "Sadrith Mora" },
           { "type": "faction", "comparator": "!=", "value": "Telvanni" },
           { "type": "faction", "comparator": "!=", "value": "Morag Tong" }
-        ]
+        ],
+        "text": "Everyone's talking about the murder of Alven Salas. He was a member of Morag Tong here in Sadrith Mora, you know? They say he owned some powerful artifact which is now missing. Perhaps someone from House Telvanni wanted to lay their hands on it."
       },
       {
         "id": "HT_BlackJinx_02",
         "conditions": [
           { "type": "faction", "value": "Telvanni" },
           { "type": "cell", "comparator": "!=", "value": "Tel Mora" }
-        ]
+        ],
+        "text": "A friend of mine from Tel Mora says that Mistress Dratha has acquired Black Jinx, a powerful artifact which was rumored to belong to someone in Morag Tong. Coincidentally, some local Morag Tong member was murdered in Sadrith Mora not so long ago."
       },
       {
         "id": "HT_BlackJinx_03",
         "conditions": [
           { "type": "cell", "value": "Tel Mora" },
           { "type": "questCompleted", "comparator": "not_completed", "value": "HT_FleshAmulet" }
-        ]
+        ],
+        "text": "I've heard that Mistress Dratha has finally got the Black Jinx ring. She's been looking for it for quite some time. Looks like Mouth Raven Omayn has finally found someone who can get things done."
       },
       {
         "id": "HT_BlackJinx_04",
@@ -30,7 +33,8 @@
           { "type": "faction", "comparator": "!=", "value": "Telvanni" },
           { "type": "faction", "comparator": "!=", "value": "Morag Tong" },
           { "type": "dead", "value": "alven salas"}
-        ]
+        ],
+        "text": "Apparently, Morag Tong are searching for someone who stole some enchanted ring from one of their members in Sadrith Mora. Whoever did it, they are quite brave to steal rom Morag Tong. Or just stupid."
       }
     ],
     "HT_FleshAmulet": [
@@ -41,7 +45,8 @@
           { "type": "cell", "comparator": "!=", "value": "Sadrith Mora, Tel Naga" },
           { "type": "faction", "comparator": "!=", "value": "Telvanni" },
           { "type": "dead", "value": "berengeval" }
-        ]
+        ],
+        "text": "They say the captain of Neloth's guard was killed for some enchanted amulet. Nothing new for House Telvanni, of course. Perhaps the next captain will brag less about his trinkets."
       },
       {
         "id": "HT_FleshAmulet_02",
@@ -49,7 +54,8 @@
           { "type": "cell", "value": "Sadrith Mora" },
           { "type": "cell", "comparator": "!=", "value": "Sadrith Mora, Tel Naga" },
           { "type": "dead", "comparator": "!=", "value": "neloth" }
-        ]
+        ],
+        "text": "The captain of Tel Naga's guard was killed, yet Master Neloth doesn't seem to even notice. I guess when you are a thousand year old Telvanni wizard, you stop caring about such mundane matters."
       },
       {
         "id": "HT_FleshAmulet_03",
@@ -58,21 +64,34 @@
           { "type": "cell", "comparator": "!=", "value": "Tel Mora" },
           { "type": "faction", "value": "Telvanni" },
           { "type": "dead", "value": "berengeval" }
-        ]
+        ],
+        "text": "Have you heard? Someone came to Tel Naga in Sadrith Mora, killed the captain of Neloth's guard, and all for some amulet. Quite brazen, if you ask me."
       },
       {
         "id": "HT_FleshAmulet_04",
         "conditions": [
           { "type": "questCompleted", "value": "HT_BlackJinx" },
-          { "type": "cell", "value": "Tel Mora" }
-        ]
+          { "type": "cell", "value": "Tel Mora" },
+          { "type": "pcSex", "value": true }
+        ],
+        "text": "First Black Jinx and now Flesh Made Whole? You have certainly done well for yourself in the eyes of Mistress Dratha, haven't you?  I was told that she's been sending mercenaries and low-ranking Telvanni to retrieve it for the last fifty years. It must have been quite a pleasure for her that it was a woman who acquired these artifacts."
       },
       {
         "id": "HT_FleshAmulet_05",
         "conditions": [
+          { "type": "questCompleted", "value": "HT_BlackJinx" },
+          { "type": "cell", "value": "Tel Mora" },
+          { "type": "pcSex", "value": false }
+        ],
+        "text": "First Black Jinx and now Flesh Made Whole? You have certainly done well for yourself in the eyes of Mistress Dratha, haven't you? As well as a man could, anyway, given Dratha's... predisposition. I was told that she's been sending mercenaries and low-ranking Telvanni to retrieve it for the last fifty years."
+      },
+      {
+        "id": "HT_FleshAmulet_06",
+        "conditions": [
           { "type": "questCompleted", "comparator": "not_completed", "value": "HT_BlackJinx" },
           { "type": "cell", "value": "Tel Mora" }
-        ]
+        ],
+        "text": "I've been told that Mistress Dratha has at last acquired Flesh Made Whole. They say she's been sending mercenaries and low-ranking Telvanni to retrieve it for the last fifty years."
       }
     ],
     "HT_NchuleftKey": [
@@ -81,7 +100,8 @@
         "conditions": [
           { "type": "faction", "value": "Telvanni" },
           { "type": "dead", "comparator": "!=", "value": "gothren" }
-        ]
+        ],
+        "text": "It's not uncommon for a Telvanni wizard to be interested in Dwemers. But it seems like Archmagister Gothren has become more engaged in these matters recently. I have heard that he's been sending scouts to look for Dwemer ruins and artifacts. Perhaps he wants to gain the upper hand over young Master Aryon."
       }
     ],
     "HT_DrakePride": [
@@ -89,14 +109,16 @@
         "id": "HT_DrakePride_Tel_Aruhn",
         "conditions": [
           { "type": "cell", "value": "Tel Aruhn" }
-        ]
+        ],
+        "text": "It can be risky for low-ranking members of House Telvanni to have artifacts beyond their power in possession. Take Senise Thindo, for example. Everyone here in Tel Aruhn knew she had the Robe of Drake's Pride, a great value for a mere Lawman. If she were more cautious, she would still be alive and able to rise in the ranks. Instead, she is dead and the Drake's Pride now belongs to Master Neloth."
       },
       {
         "id": "HT_DrakePride_Telvanni_Not_Tel_Aruhn",
         "conditions": [
           { "type": "faction", "value": "Telvanni" },
           { "type": "cell", "comparator": "!=", "value": "Tel Aruhn" }
-        ]
+        ],
+        "text": "You know, I just heard that Master Neloth got hold of the Robe of Drake's Pride. Apparently, he sent someone to murder the previous owner, some servant of Archmagister Gothren, and obtain the robe. There was no retaliation from Tel Aruhn, of course. That servant was just a Lawman and she brought it on herself."
       }
     ],
     "HT_AurielBow": [
@@ -105,14 +127,16 @@
         "conditions": [
           { "type": "cell", "comparator": "!=", "value": "Ghostgate" },
           { "type": "dead", "value": "ralyn othravel" }
-        ]
+        ],
+        "text": "I recently met a pilgrim returning from Ghostgate who told me that one of the Ordinators there had been murdered. Allegedly, that Ordinator had Auriel's Bow in his possession, can you believe that? I guess only a legendary artifact such as this could lead someone to kill an Ordinator stationed at one of the most protected places on Vvardenfell."
       },
       {
         "id": "HT_AurielBow_Steal",
         "conditions": [
           { "type": "cell", "comparator": "!=", "value": "Ghostgate" },
           { "type": "dead", "comparator": "!=", "value": "ralyn othravel" }
-        ]
+        ],
+        "text": "A pilgrim recently passed through here on his way from Ghostgate and brought some peculiar news. Usually all you hear from Ghostgate are stories about blight monsters, but this time I heard that someone stole the legendary Auriel's Bow from one of the Ordinators there. Who could've been that arrogant to steal an artifact such as this from one of the most protected places on Vvardenfell?"
       }
     ],
     "HT_BaladasAlly": [
@@ -120,33 +144,38 @@
         "id": "HT_BaladasAlly_Commoner",
         "conditions": [
           { "type": "faction", "value": "NOT_GREAT_HOUSE" }
-        ]
+        ],
+        "text": "Apparently, House Telvanni now has a new CouncilorI think his name is Baladas Demnevanni. I've been told that he is not as eccentric as other Telvanni, but I doubt it — why would he decide to live in Gnisis, a Redoran town that is also close to an Imperial fort?"
       },
       {
         "id": "HT_BaladasAlly_Telvanni_Gothren_Alive",
         "conditions": [
           { "type": "faction", "value": "Telvanni" },
           { "type": "dead", "comparator": "!=", "value": "gothren" }
-        ]
+        ],
+        "text": "Baladas Demnevanni is quite interesting, even for a Telvanni. A famed Dwemer researcher, he dwells far away from traditional Telvanni lands in Gnisis, a Redoran town with Imperial presence. And now he joins the Council thanks to your efforts and much to the annoyance of Archmagister Gothren, who thinks that Baladas will support progressive initiatives of Master Aryon."
       },
       {
         "id": "HT_BaladasAlly_Telvanni_Gothren_Dead",
         "conditions": [
           { "type": "faction", "value": "Telvanni" },
           { "type": "dead", "value": "gothren" }
-        ]
+        ],
+        "text": "Baladas Demnevanni is quite interesting, even for a Telvanni. A famed Dwemer researcher, he dwells far away from traditional Telvanni lands in Gnisis, a Redoran town with Imperial presence. And now, when he has joined the Council thanks to your efforts, we can expect that he will be much more supportive of progressive initiatives of Master Aryon, compared to older councilors."
       },
       {
         "id": "HT_BaladasAlly_Hlaalu",
         "conditions": [
           { "type": "faction", "value": "Hlaalu" }
-        ]
+        ],
+        "text": "I've been told that House Telvanni now has a new Councilor, a certain Baladas Demnevanni. Apparently, he resides in Gnisis of all places. I wonder if House Redoran will try to push him out of the their territories."
       },
       {
         "id": "HT_BaladasAlly_Redoran",
         "conditions": [
           { "type": "faction", "value": "Redoran" }
-        ]
+        ],
+        "text": "Have you heard of Baladas Demnevanni? He is a renegade mage who lives in Gnisis, and apparently he has recently joined the Council of House Telvanni. I wonder if he will stay in his tower for long. Even though we Redorans do not attack without a cause, he might deem it safer to move closer to Telvanni lands in the east."
       }
     ],
     "HT_Odirniran": [
@@ -154,25 +183,29 @@
         "id": "HT_Odirniran_Commoner",
         "conditions": [
           { "type": "faction", "value": "NOT_GREAT_HOUSE" }
-        ]
+        ],
+        "text": "They say there was a clash between Hlaalu and Telvanni at a Velothi tower somewhere on Azura's Coast. I don't know the details, but it looks like House Hlaalu went on some sort of a rescue mission and got completely wiped out."
       },
       {
         "id": "HT_Odirniran_Telvanni",
         "conditions": [
           { "type": "faction", "value": "Telvanni" }
-        ]
+        ],
+        "text": "Heard about your part in lifting the Hlaalu siege at Odirniran. I hope it will teach them a lesson not to intervene into Telvanni affairs."
       },
       {
         "id": "HT_Odirniran_Hlaalu",
         "conditions": [
           { "type": "faction", "value": "Hlaalu" }
-        ]
+        ],
+        "text": "My friends are talking about the failed rescue mission at Odirniran. It's a Velothi tower on Azura's Coast, and a home to a Telvanni sorcerer who kidnapped a member of House Hlaalu. The expeditionary force, led by the prisoner's sister, managed to get into the tower but never left it. That Telvanni bastard must have gotten some help from his House."
       },
       {
         "id": "HT_Odirniran_Redoran",
         "conditions": [
           { "type": "faction", "value": "Redoran" }
-        ]
+        ],
+        "text": "I've been told that House Hlaalu suffered quite a defeat at Odirniran. Allegedly, one of their members was imprisoned by a Telvanni sorcerer. The Hlaalu rescue force sent to Odirniran was overpowered and faced its demise. I'm told that the Telvanni mage got reinforcements from his House, but it must be utter nonsense. House Telvanni never looks out for their own."
       }
     ],
     "HT_AttackRethan": [
@@ -180,25 +213,29 @@
         "id": "HT_AttackRethan_Commoner",
         "conditions": [
           { "type": "faction", "value": "NOT_GREAT_HOUSE" }
-        ]
+        ],
+        "text": "The Great Houses fight over remote frontier fortresses and towers all the time, but the recent murder of the Raynasa Rethan from House Hlaalu is different. Her manor is situated on Odai Plateau, nobody was expecting an attack like this to happen so close to Balmora."
       },
       {
         "id": "HT_AttackRethan_Hlaalu",
         "conditions": [
           { "type": "faction", "value": "Hlaalu" }
-        ]
+        ],
+        "text": "Everyone in House Hlaalu is talking about Raynasa Rethan. She was killed by some Telvanni in her own manor on Odai Plateau. Conflicts between Great Houses took many Hlaalu lives, but few so close to Balmora. We can only hope that the Council will retaliate in some way. If you ask me, it's time to stop getting our hands dirty and hire Morag Tong instead."
       },
       {
         "id": "HT_AttackRethan_Redoran",
         "conditions": [
           { "type": "faction", "value": "Redoran" }
-        ]
+        ],
+        "text": "Have you heard? A Hlaalu noble had been killed in her own manor not far from Balmora. I am sure this was not House Redoran's doing, perhaps House Telvanni wanted to retaliate for the recent attack on their tower at Odirniran?"
       },
       {
         "id": "HT_AttackRethan_Telvanni",
         "conditions": [
           { "type": "faction", "value": "Telvanni" }
-        ]
+        ],
+        "text": "I've heard about your involvement in the recent \"retiring\" of Raynasa Rethan. Thanks to you and Master Aryon, House Telvanni has demonstrated that our reach extends a lot farther than Grazelands and Azura's Coast."
       }
     ],
     "HT_AttackIndarys": [
@@ -206,25 +243,29 @@
         "id": "HT_AttackIndarys_Commoner",
         "conditions": [
           { "type": "faction", "value": "NOT_GREAT_HOUSE" }
-        ]
+        ],
+        "text": "The fights between Great Houses are getting uglier. It is as if they have forgotten about the existence of Morag Tong and decided to do all the dirty work themselves. First the attack on Hlaalu stronghold near Balmora, and now a Redoran noble has been murdered in his manor in Bal Isra, halfway between Ald-Ruhn and Maar Gan."
       },
       {
         "id": "HT_AttackIndarys_Hlaalu",
         "conditions": [
           { "type": "faction", "value": "Hlaalu" }
-        ]
+        ],
+        "text": "First Shishi, now Bal Isra. House Redoran keeps thinking that they, unlike Hlaalu, have the upper hand over House Telvanni. They should have seen it coming after the recent attack on Rethan manor. Did they think that House Telvanni would not target them as well? Perhaps the murder of Banden Indarys will make them realize this mistake."
       },
       {
         "id": "HT_AttackIndarys_Redoran",
         "conditions": [
           { "type": "faction", "value": "Redoran" }
-        ]
+        ],
+        "text": "Banden Indarys killed by some Telvanni in his own home,. He was a noble man, but he failed to see the warning in the recent murder of that Hlaalu Rethan noble. The Council is still to decide on an appropriate response, I wonder if they will mount an attack on one of House Telvanni holdings. Those mages are extremely arrogant if they think that they can get away with attacking Redoran strongholds."
       },
       {
         "id": "HT_AttackIndarys_Telvanni",
         "conditions": [
           { "type": "faction", "value": "Telvanni" }
-        ]
+        ],
+        "text": "Seems like you are really good at stopping other Great Houses from expanding their territories. First Raynasa Rethan and her stronghold on Odai Plateau, and now Banden Indarys in Bal Isra? You are truly a worthy member of House Telvanni."
       }
     ],
     "HT_Shishi": [
@@ -233,40 +274,46 @@
         "conditions": [
           { "type": "faction", "value": "NOT_GREAT_HOUSE" },
           { "type": "cell", "value": "Maar Gan" }
-        ]
+        ],
+        "text": "Have you heard of what happened at Shishi? It's an old Velothi tower to the northwest from here. A Telvanni mage took over it some time ago, and House Redoran tried to claim it back. They took out most of the mercenaries and servants there, but couldn't find the mage himself. And while they were looking for him, Telvanni reinforcements had arrived and dealt with the Redoran troops."
       },
       {
         "id": "HT_Shishi_Commoner_Not_Maar_Gan",
         "conditions": [
           { "type": "faction", "value": "NOT_GREAT_HOUSE" },
           { "type": "cell", "comparator": "!=", "value": "Maar Gan" }
-        ]
+        ],
+        "text": "People are talking about another clash between the Great Houses, now somewhere near Maar Gan. Apparently, a Telvanni mage claimed an old tower, Shashu, or was it Shisha? Of course, the Redorans didn't like that and sent soldiers, but none returned. Nobody knows for sure how they died, some say that the Telvanni sent an entire troop as reinforcements, and others claim it was just one powerful wizard. In the end, all of the Redorans soldiers were wiped out and the tower left in Telvanni hands."
       },
       {
         "id": "HT_Shishi_Telvanni",
         "conditions": [
           { "type": "faction", "value": "Telvanni" }
-        ]
+        ],
+        "text": "Wasn't it you who had repelled Redorans from Shishi? And you also helped at Odirniran, right? It is unusual for a Telvanni to come to another Telvanni's aid, but you and Master Aryon are quite unorthodox. Perhaps our House needs more people like you if we want to protect our interests on Vvardenfell."
       },
       {
         "id": "HT_Shishi_Hlaalu",
         "conditions": [
           { "type": "faction", "value": "Hlaalu" }
-        ]
+        ],
+        "text": "I was wondering if Odirniran was just a single case of Telvanni cooperation, but seems like it's not. House Redoran failed to oust a Telvanni mage from their own territory near Maar Gan, can you believe that? I am willing to bet that mage got the same help as the one from Odirniran. House Telvanni wizards seem to have found some interest in protecting their own."
       },
       {
         "id": "HT_Shishi_Redoran_Not_Maar_Gan",
         "conditions": [
           { "type": "faction", "value": "Redoran" },
           { "type": "cell", "comparator": "!=", "value": "Maar Gan" }
-        ]
+        ],
+        "text": "I've heard the most furious news from Maar Gan. An entire troop of Redoran soldiers was wiped out right after they almost drove out Telvanni mages from Shishi. Seems like someone from House Telvanni sent reinforcements to protect their own, contrary to their infamous isolationism. I wish we could just bury the entrance to that tower, but these mages probably will just teleport away."
       },
       {
         "id": "HT_Shishi_Redoran_Maar_Gan",
         "conditions": [
           { "type": "faction", "value": "Redoran" },
           { "type": "cell", "value": "Maar Gan" }
-        ]
+        ],
+        "text": "An entire troop of Redoran soldiers perished during the attack on Shishi to the northwest. They tried to oust a Telvanni mage who claimed the tower for himself, but did not expect Telvanni reinforcements. This is a serious blow to House Redoran, we cannot give up our territories to these blasphemers and necromancers."
       }
     ],
     "HT_RecruitEddie": [
@@ -274,7 +321,8 @@
         "id": "HT_RecruitEddie_Telvanni",
         "conditions": [
           { "type": "faction", "value": "Telvanni" }
-        ]
+        ],
+        "text": "Fast Eddie is an interesting choice for your Mouth, %PCRank. No-one heard anything about him in years, and many thought that he was killed on Gothren's or Dratha's orders. If he is still as ambitious as he was before, he'll be a great Mouth."
       }
     ],
     "HT_Archmagister": [
@@ -282,25 +330,29 @@
         "id": "HT_Archmagister_Commoner",
         "conditions": [
           { "type": "faction", "value": "NOT_GREAT_HOUSE" }
-        ]
+        ],
+        "text": "Have you heard? An outlander became the new Archmagister of House Telvanni after overthrowing the old one. This is highly unusual, and I am sure that many in House Telvanni will not accept this outlander as their leader. Not that it matters much, he/she must be extremely cunning and powerful to take such a position."
       },
       {
         "id": "HT_Archmagister_Hlaalu",
         "conditions": [
           { "type": "faction", "value": "Hlaalu" }
-        ]
+        ],
+        "text": "I hear House Telvanni has got a new Archmagister. It's hard to believe, given that Gothren have been at the head for hundreds of years. It is even harder to believe that the new Archmagister is an outlander. These are interesting times, aren't they?"
       },
       {
         "id": "HT_Archmagister_Redoran",
         "conditions": [
           { "type": "faction", "value": "Redoran" }
-        ]
+        ],
+        "text": "You could expect this from House Hlaalu, but an outlander as the leader of House Telvanni? I did hear about some progressive tendencies on their council, but this is very unprecedented. Perhaps we in House Redoran should prepare for changes in our own midst, if even Telvanni seem to be moving with the times?"
       },
       {
         "id": "HT_Archmagister_Telvanni",
         "conditions": [
           { "type": "faction", "value": "Telvanni" }
-        ]
+        ],
+        "text": "Everyone is talking about your quick rise to power in House Telvanni, Archmagister. And, I dare say, they will be talking about it for years to come. You have proven to be a true Telvanni, unmatched in your mastery of magic. I would never expect Master Aryon to abandon his ambitions for this position, but he must have seen you as a more worthy candidate."
       }
     ],
     "HT_EddieRing": [
@@ -309,7 +361,8 @@
         "conditions": [
           { "type": "cell", "comparator": "!=", "value": "Sadrith Mora, Tel Naga" },
           { "type": "faction", "value": "Telvanni" }
-        ]
+        ],
+        "text": "I hear that someone broke into Neloth's treasury and stole the Ring of Equity. Whoever got that ring must be quite bold — even if he never even touched it, Neloth is petty enough to send someone after the thief."
       }
     ],
     "HT_SlaveRebellion": [
@@ -319,7 +372,8 @@
           { "type": "cell", "comparator": "!=", "value": "Tel Branora" },
           { "type": "faction", "value": "Telvanni" },
           { "type": "journal", "questId": "HT_SlaveRebellion", "value": 110}
-        ]
+        ],
+        "text": "Abolitionists are getting more daring in Telvanni territories. Have you heard of the slave rebellion at one of Mistress Therana's egg mines? Someone was sent to quell those slaves but apparently they were gone by the time the help arrived."
       },
       {
         "id": "HT_SlaveRebellion_Telvanni_SlavesKilled",
@@ -327,7 +381,8 @@
           { "type": "cell", "comparator": "!=", "value": "Tel Branora" },
           { "type": "faction", "value": "Telvanni" },
           { "type": "journal", "questId": "HT_SlaveRebellion", "value": 100}
-        ]
+        ],
+        "text": "Even though abolitionists are becoming more active here on Vvardenfell, Telvanni territories are luckily still free from them. There had been a slave rebellion somewhere near Tel Branora, but Therana put an end to it."
       },
       {
         "id": "HT_SlaveRebellion_TelBranora_SlavesFreed",
@@ -336,7 +391,8 @@
           { "type": "faction", "value": "Telvanni" },
           { "type": "journal", "questId": "HT_SlaveRebellion", "value": 110},
           { "type": "dead", "comparator": "!=", "value": "therana" }
-        ]
+        ],
+        "text": "I must say Mistress Therana doesn't seem too concerned with the slaves escaped from the Abebaal Egg Mine. We can only hope that the new slaves will arrive soon. Only Azura knows who might experience her anger, if the supply of kwama eggs runs dry."
       },
       {
         "id": "HT_SlaveRebellion_TelBranora_SlavesKilled",
@@ -345,7 +401,8 @@
           { "type": "faction", "value": "Telvanni" },
           { "type": "journal", "questId": "HT_SlaveRebellion", "value": 100},
           { "type": "dead", "comparator": "!=", "value": "therana" }
-        ]
+        ],
+        "text": "Thank you for quelling those rebellious slaves from the Abebaal Egg Mine. I cannot imagine how would Mistress Therana react if her kwama eggs supply was to stop for longer."
       }
     ]
   }

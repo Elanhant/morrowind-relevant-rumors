@@ -37,7 +37,7 @@ local function checkJournalStage(condition)
 end
 
 local function checkPCSex(condition)
-  return tes3.mobilePlayer.firstPerson.female == conditon.value
+  return tes3.mobilePlayer.firstPerson.female == condition.value
 end
 
 this.checkCell = checkCell
