@@ -3,11 +3,14 @@ local cache = require("Rumors-Expanded.cache")
 local checks = require("Rumors-Expanded.checks")
 local debug = require("Rumors-Expanded.debug")
 
+local MOD_NAME = 'Rumors Expanded Lua.ESP'
 local QUEST_COMPLETED_INDEX = 100
 local RUMOR_CHANCE = 100
 local shouldInvalidateCache = false
 
 local prevResponseGlobalVarName = nil
+
+local responseLastUsedAt = {}
 
 local function getQuestRumor(questId, filters) 
   local responsesPool = config.responses[questId]
@@ -52,16 +55,32 @@ local function getGlobalVarName(questId)
   return "RE_" .. questId .. "_Response"
 end
 
--- @TODO smart-ish randomiser which tries to pick a response which hadn't been used before (perhaps use pool + random whether to check the pool?)
 local function randomizeResponse(responseCandidates)
-  print("randomizeResponse")
-  print(debug.to_string(responseCandidates))
   if (not responseCandidates) then
     return nil
   end
-  -- local index = math.random(table.size(responseCandidates) * 2)
-  local index = math.random(table.size(responseCandidates) * (100 / RUMOR_CHANCE))
-  return responseCandidates[index]
+
+  -- Only show random rumors with a set probability
+  if (math.random(100) > RUMOR_CHANCE) then
+    return nil
+  end
+
+  local leastRecentUsageTime = os.clock()
+  local selectedResponseIndex = nil
+
+  for idx,responseCandidate in pairs(responseCandidates) do
+    local lastUsageTime = responseLastUsedAt[getGlobalVarName(responseCandidate.questId)]
+    if (lastUsageTime ~= nil and lastUsageTime <= leastRecentUsageTime) then
+      leastRecentUsageTime = lastUsageTime
+      selectedResponseIndex = idx
+    end
+  end
+
+  if (selectedResponseIndex == nil) then
+    selectedResponseIndex = math.random(table.size(responseCandidates))
+  end
+
+  return responseCandidates[selectedResponseIndex]
 end
 
 local function getResponseCandidates(mobileActor)
@@ -145,7 +164,7 @@ local function pickRandomRumor(e)
   print("=========================")
   
   print("FINAL:")
-  print(selectedResponse)
+  print(debug.to_string(selectedResponse))
   if (selectedResponse) then
     local globalVarName = getGlobalVarName(selectedResponse.questId)
     prevResponseGlobalVarName = globalVarName
@@ -154,15 +173,21 @@ local function pickRandomRumor(e)
   end
 end
 
+local function updateLastUsedResponse(e)
+  if (e.info.sourceMod == MOD_NAME and prevResponseGlobalVarName) then
+    responseLastUsedAt[prevResponseGlobalVarName] = os.clock()
+  end
+end
+
 local function initialized()
   event.register("loaded", onLoaded)
   event.register("journal", onJournalUpdate)
   event.register("uiActivated", pickRandomRumor, { filter = "MenuDialog" })
+  event.register("infoGetText", oninfoGetText)
   
   print("[MWSE Rumors Expanded: INFO] Initializing...")
   config = json.loadfile("mods/Rumors-Expanded/config")
 
-  print(debug.to_string(config))
   print("[MWSE Rumors Expanded: INFO] Initialized")
 end
 
