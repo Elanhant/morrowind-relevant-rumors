@@ -12,6 +12,22 @@ local prevResponseGlobalVarName = nil
 
 local responseLastUsedAt = {}
 
+local DEBUG = true
+
+local function printDebugMessage(title, value, skipNilValue)
+  if (not DEBUG) then
+    return
+  end
+
+  print("[Rumors Expanded] " .. title)
+
+  if (value == nil and skipNilValue) then
+    return
+  end
+
+  print(debug.to_string(value) .. "\n")
+end
+
 local function getQuestRumor(questId, filters) 
   local responsesPool = config.responses[questId]
   local rumor = {}
@@ -19,31 +35,28 @@ local function getQuestRumor(questId, filters)
   for responseIndex,responseMeta in pairs(responsesPool) do
     local responseMatches = true
     for index,condition in pairs(responseMeta.conditions) do
+      local checkType = condition.type
       local conditionMatches = false
-      if (condition.type == 'cell') then
+      if (checkType == 'cell') then
         conditionMatches = checks.checkCell(condition, filters.actorCell)
-        print("cell check: " .. debug.to_string(conditionMatches))
-      elseif (condition.type == 'faction') then
+      elseif (checkType == 'faction') then
         conditionMatches = checks.checkFaction(condition, filters.actorFaction)
-        print("faction check: " .. debug.to_string(conditionMatches))
-      elseif (condition.type == 'dead') then
+      elseif (checkType == 'dead') then
         conditionMatches = checks.checkDead(condition)
-        print("dead check: " .. debug.to_string(conditionMatches))
-      elseif (condition.type == 'questCompleted') then
+      elseif (checkType == 'questCompleted') then
         conditionMatches = checks.checkQuestCompleted(condition)
-        print("quest completed check: " .. debug.to_string(conditionMatches))
-      elseif (condition.type == 'journal') then
+      elseif (checkType == 'journal') then
         conditionMatches = checks.checkJournalStage(condition)
-        print("journal check: " .. debug.to_string(conditionMatches))
-      elseif (condition.type == 'pcSex') then
+      elseif (checkType == 'pcSex') then
         conditionMatches = checks.checkPCSex(condition)
-        print("PCSex check: " .. debug.to_string(conditionMatches))
       else
       end
+      printDebugMessage("Check '" .. checkType .. "':", conditionMatches)
       responseMatches = responseMatches and conditionMatches
     end
-    print(responseMeta.id .. " responseMatches " .. debug.to_string(responseMatches))
+
     if (responseMatches == true) then
+      printDebugMessage("Matching response for " .. responseMeta.id .. ":", responseIndex)
       return responseIndex
     end
   end
@@ -70,11 +83,20 @@ local function randomizeResponse(responseCandidates)
 
   for idx,responseCandidate in pairs(responseCandidates) do
     local lastUsageTime = responseLastUsedAt[getGlobalVarName(responseCandidate.questId)]
-    if (lastUsageTime ~= nil and lastUsageTime <= leastRecentUsageTime) then
+
+    if (lastUsageTime == nil) then
+      lastUsageTime = 0
+    end
+
+    if (lastUsageTime <= leastRecentUsageTime) then
       leastRecentUsageTime = lastUsageTime
       selectedResponseIndex = idx
     end
   end
+
+  printDebugMessage("Response candidates", responseCandidates)
+  printDebugMessage("Last usage time", responseLastUsedAt)
+  printDebugMessage("Least recent response index", selectedResponseIndex)
 
   if (selectedResponseIndex == nil) then
     selectedResponseIndex = math.random(table.size(responseCandidates))
@@ -113,8 +135,6 @@ end
 
 local function resetGlobals()
   for questId,questResponses in pairs(config.responses) do
-    tes3.messageBox("resetting " .. getGlobalVarName(questId))
-
     tes3.setGlobal(getGlobalVarName(questId), 0)
   end
 end
@@ -158,18 +178,13 @@ local function pickRandomRumor(e)
   end
 
   selectedResponse = randomizeResponse(cache.getResponsesPoolFromCache(actorId))
-
-  print("Cached responses for NPC:")
-  print(debug.to_string(cache.getResponsesPoolFromCache(actorId)))
-  print("=========================")
   
-  print("FINAL:")
-  print(debug.to_string(selectedResponse))
+  printDebugMessage("Selected response:", selectedResponse)
+
   if (selectedResponse) then
     local globalVarName = getGlobalVarName(selectedResponse.questId)
     prevResponseGlobalVarName = globalVarName
     tes3.setGlobal(globalVarName, selectedResponse.index)
-    tes3.messageBox(globalVarName .. ": " .. selectedResponse.index)
   end
 end
 
@@ -183,12 +198,13 @@ local function initialized()
   event.register("loaded", onLoaded)
   event.register("journal", onJournalUpdate)
   event.register("uiActivated", pickRandomRumor, { filter = "MenuDialog" })
-  event.register("infoGetText", oninfoGetText)
+  event.register("infoGetText", updateLastUsedResponse)
   
-  print("[MWSE Rumors Expanded: INFO] Initializing...")
+  printDebugMessage("Initializing...", nil, true)
+
   config = json.loadfile("mods/Rumors-Expanded/config")
 
-  print("[MWSE Rumors Expanded: INFO] Initialized")
+  printDebugMessage("Initialized!", nil, true)
 end
 
 event.register("initialized", initialized)

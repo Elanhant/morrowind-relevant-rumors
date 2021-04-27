@@ -23,7 +23,6 @@ local function getResponsesPoolFromCache(actorId)
 end
 
 local function invalidate()
-  print("Invalidate cache")
   responsesPoolPerNpcCache = {}
   currentCacheIndex = 1
   cachedNpcIds = {}
