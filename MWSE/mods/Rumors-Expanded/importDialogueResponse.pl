@@ -24,7 +24,11 @@ sub main {
 
   my $responseIndex = $R->{SH}->{INTV}[0]->{compare_value} - 1;
 
-  my $responseText = $responses->{$questId}[$responseIndex]->{text};
+  my $responseText = $responses->{$questId}[$responseIndex]->{text} or die("Can't find response for quest ID '$questId' and index $responseIndex.");
+
+  if (length($responseText) > 500) {
+     die("Response for quest ID '$questId' and index $responseIndex is too long, should be no more than 500 characters.");
+  }
 
   print "Response for $questId (response index $responseIndex):\n";
   print "----------\n$responseText\n----------\n\n";

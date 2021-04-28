@@ -49,6 +49,8 @@ local function getQuestRumor(questId, filters)
         conditionMatches = checks.checkJournalStage(condition)
       elseif (checkType == 'pcSex') then
         conditionMatches = checks.checkPCSex(condition)
+      elseif (checkType == 'pcRank') then
+        conditionMatches = checks.checkPCRank(condition)
       else
       end
       printDebugMessage("Check '" .. checkType .. "':", conditionMatches)

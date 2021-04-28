@@ -405,5 +405,67 @@
         "text": "Thank you for quelling those rebellious slaves from the Abebaal Egg Mine. I cannot imagine how would Mistress Therana react if her kwama eggs supply was to stop for longer."
       }
     ]
-  }
+  },
+  "HT_Stronghold": [
+    {
+      "id": "HT_Stronghold_1st_Stage_Commoner",
+      "conditions": [
+        { "type": "faction", "value": "NOT_GREAT_HOUSE" },
+        { "type": "journal", "value": 100 }
+      ],
+      "text": "Everyone knows that Telvanni wizards tend to take over remote abandoned Velothi towers, but now I hear that one of them is building a stronghold somewhere in Molag Amur with the Duke's permission. I hope this expansion will not lead to even more fights between the Great Houses."
+    },
+    {
+      "id": "HT_Stronghold_1st_Stage_Hlaalu",
+      "conditions": [
+        { "type": "faction", "value": "Hlaalu" },
+        { "type": "journal", "value": 100 }
+      ],
+      "text": "I have heard many peculiar things, but for an upstart Telvanni to get the Duke's permission for building a stronghold? Surely House Telvanni could not have decided to stop their rogue operations?"
+    },
+    {
+      "id": "HT_Stronghold_1st_Stage_Redoran",
+      "conditions": [
+        { "type": "faction", "value": "Redoran" },
+        { "type": "journal", "value": 100 }
+      ],
+      "text": "I have heard many peculiar things, but for an upstart Telvanni to get the Duke's permission for building a stronghold? Surely House Telvanni could not have decided to stop their rogue operations?"
+    },
+    {
+      "id": "HT_Stronghold_3rd_Stage_Commoner",
+      "conditions": [
+        { "type": "faction", "value": "NOT_GREAT_HOUSE" },
+        { "type": "journal", "value": 300 },
+        { "type": "pcRank", "faction": "Telvanni", "value": 9 }
+      ],
+      "text": "Not so long ago, Uvirith's Grave was a desolate landmark in the wilderness of Molag Amur, and now it is the seat of the new Archmagister of House Telvanni. I heard that Tel Uvirith is protected by all sorts of unconventional guard — some say Daedra, others mention Dwemer machines, and there even are claims about Sloads, can you believe that?"
+    },
+    {
+      "id": "HT_Stronghold_3rd_Stage_Hlaalu",
+      "conditions": [
+        { "type": "faction", "value": "Hlaalu" },
+        { "type": "journal", "value": 300 },
+        { "type": "pcRank", "faction": "Telvanni", "value": 9 }
+      ],
+      "text": " I wonder if House Hlaalu will be sending an envoy to Uvirith's Grave soon. The new Archmagister of House Telvanni seems to be more involved in the Vvardenfell politics compared to Archmagister Gothren. Do you believe all those rumors about Dwemer or Daedric guards that are said to be guarding Tel Uvirith?"
+    },
+    {
+      "id": "HT_Stronghold_3rd_Stage_Redoran",
+      "conditions": [
+        { "type": "faction", "value": "Redoran" },
+        { "type": "journal", "value": 300 },
+        { "type": "pcRank", "faction": "Telvanni", "value": 9 }
+      ],
+      "text": "For the first time in centuries the Archmagister of House Telvanni settles on the very frontier of Telvanni lands. Many in House Redoran are worried that this means even further territory expansion for those blasphemous wizards."
+    },
+    {
+      "id": "HT_Stronghold_3rd_Stage_Telvanni",
+      "conditions": [
+        { "type": "faction", "value": "Telvanni" },
+        { "type": "journal", "value": 300 },
+        { "type": "pcRank", "faction": "Telvanni", "value": 9 }
+      ],
+      "text": "I know people in House Telvanni who are thinking about moving to Tel Uvirith in hopes that living on the frontier of Telvanni lands and serving the new Archmagister will help them to earn a better place in the House ranks."
+    }
+  ]
 }

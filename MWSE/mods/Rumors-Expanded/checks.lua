@@ -40,11 +40,19 @@ local function checkPCSex(condition)
   return tes3.mobilePlayer.firstPerson.female == condition.value
 end
 
+local function checkPCRank(condition)
+  local faction = tes3.getFaction({ id = condition.faction })
+  print(condition.faction)
+  print(faction.playerRank)
+  return faction.playerRank == condition.value
+end
+
 this.checkCell = checkCell
 this.checkFaction = checkFaction
 this.checkDead = checkDead
 this.checkQuestCompleted = checkQuestCompleted
 this.checkJournalStage = checkJournalStage
 this.checkPCSex = checkPCSex
+this.checkPCRank = checkPCRank
 
 return this
