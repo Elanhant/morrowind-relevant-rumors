@@ -9,10 +9,22 @@ local function checkCell(condition, actorCell)
   end
 end
 
+local function isGreatHouse(actorFaction) 
+  return  (actorFaction == 'Telvanni') or (actorFaction == 'Redoran') or (actorFaction == 'Hlaalu')
+end
+
 local function checkFaction(condition, actorFaction)
-  if (condition.value == 'NOT_GREAT_HOUSE') then
-    return (actorFaction ~= 'Telvanni') and (actorFaction ~= 'Redoran') and (actorFaction ~= 'Hlaalu')
+  if (condition.comparator == '!=') then
+    if (condition.value == 'NOT_GREAT_HOUSE') then
+      return isGreatHouse(actorFaction)
+    end
+
+    return actorFaction ~= condition.value
   else
+    if (condition.value == 'NOT_GREAT_HOUSE') then
+      return not isGreatHouse(actorFaction)
+    end
+
     return actorFaction == condition.value
   end
 end
@@ -42,9 +54,32 @@ end
 
 local function checkPCRank(condition)
   local faction = tes3.getFaction({ id = condition.faction })
-  print(condition.faction)
-  print(faction.playerRank)
-  return faction.playerRank == condition.value
+  if (condition.comparator == '<') then
+    return faction.playerRank < condition.value
+  elseif (condition.comparator == '>') then
+    return faction.playerRank > condition.value
+  else
+    return faction.playerRank == condition.value
+  end
+end
+
+local function checkPCRankDifference(condition, actor)
+  local faction = tes3.getFaction({ id = actor.faction })
+
+  if (not faction.playerJoined or faction.playerExpelled) then
+    return false
+  end
+
+  local playerRank = faction.playerRank
+  local actorRank = actor.factionRank
+  local difference = condition.value
+
+  if (condition.comparator == '<') then
+    return playerRank - actorRank < difference
+  elseif (condition.comparator == '>') then
+    return playerRank - actorRank > difference
+  else
+  end
 end
 
 this.checkCell = checkCell
@@ -54,5 +89,6 @@ this.checkQuestCompleted = checkQuestCompleted
 this.checkJournalStage = checkJournalStage
 this.checkPCSex = checkPCSex
 this.checkPCRank = checkPCRank
+this.checkPCRankDifference = checkPCRankDifference
 
 return this

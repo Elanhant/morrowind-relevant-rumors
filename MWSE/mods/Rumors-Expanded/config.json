@@ -466,6 +466,60 @@
         ],
         "text": "I know people in House Telvanni who are thinking about moving to Tel Uvirith in hopes that living on the frontier of Telvanni lands and serving the new Archmagister will help them to earn a better place in the House ranks."
       }
+    ],
+    "HT_Monopoly": [
+      {
+        "id": "HT_Monopoly_Commoner",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" },
+          { "type": "faction", "value": "Mages Guild", "comparator": "!=" },
+          { "type": "journal", "value": 100 }
+        ],
+        "text": "The politics of Great Houses are very complicated and unpredictable, you can never know what to expect from them. Take House Telvanni and House Redoran, for example. Apparently, Telvanni have managed to convince several Redoran councilors to support their resolution to the Grand Council to end the Mages Guild monopoly on services. And yet you can be sure that these Houses will be at each other's throats in no time."
+      },
+      {
+        "id": "HT_Monopoly_Hlaalu",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" },
+          { "type": "journal", "value": 100 }
+        ],
+        "text": "Have you heard about the resolution to overturn the Mages Guild monopoly? It has been proposed by House Telvanni, and now they got enough support from House Redoran to have a good chance at passing it. What an unexpected display of diplomacy from the Telvanni!"
+      },
+      {
+        "id": "HT_Monopoly_Redoran",
+        "conditions": [
+          { "type": "faction", "value": "Redoran" },
+          { "type": "journal", "value": 100 }
+        ],
+        "text": "House Redoran does not always agree with House Telvanni, but it is good to see that our Houses can still cooperate. Everyone knows that the Mages Guild monopoly is unfair, and overturning it will benefit not just the Telvanni, but all of Morrowind."
+      },
+      {
+        "id": "HT_Monopoly_Telvanni",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" },
+          { "type": "journal", "value": 100 }
+        ],
+        "text": "Persuading Redoran councilors to support our resolution to overturn the Mages Guild monopoly is no small task. House Telvanni does not care much about politics, but this has been affecting many of us. I hope that with the support you got this disgraceful monopoly will be finally revoked."
+      },
+      {
+        "id": "HT_Monopoly_MG_LowRank",
+        "conditions": [
+          { "type": "faction", "value": "Mages Guild" },
+          { "type": "journal", "value": 100 },
+          { "type": "pcRankDifference", "comparator": "<", "value": -4 },
+          { "type": "pcRank", "faction": "Mages Guild", "value": 5, "comparator": "<" }
+        ],
+        "text": "What is it about you helping House Telvanni to dispute our monopoly on magic services? It's a wonder that you have not been expelled from the guild for this!"
+      },
+      {
+        "id": "HT_Monopoly_MG_HighRank",
+        "conditions": [
+          { "type": "faction", "value": "Mages Guild" },
+          { "type": "journal", "value": 100 },
+          { "type": "pcRank", "faction": "Mages Guild", "value": 4, "comparator": ">" }
+        ],
+        "text": "I hope you know what you are doing, trying to convince House Redoran to support revoking the Mages Guild monopoly. I don't mind a little bit of competition, but some people in the guild might question your intentions, %PCRank."
+      }
     ]
   }
 }

@@ -51,6 +51,8 @@ local function getQuestRumor(questId, filters)
         conditionMatches = checks.checkPCSex(condition)
       elseif (checkType == 'pcRank') then
         conditionMatches = checks.checkPCRank(condition)
+      elseif (checkType == 'pcRankDifference') then
+        conditionMatches = checks.checkPCRankDifference(condition, filters.actor)
       else
       end
       printDebugMessage("Check '" .. checkType .. "':", conditionMatches)
@@ -122,7 +124,7 @@ local function getResponseCandidates(mobileActor)
     local isCompleted = tes3.getJournalIndex({ id = questId }) >= QUEST_COMPLETED_INDEX
     
     if (isCompleted) then
-      local questRumorIndex = getQuestRumor(questId, { actorCell = actorCell, actorFaction = actorFaction, actorClass = actorClass })
+      local questRumorIndex = getQuestRumor(questId, { actor = mobileActor.object, actorCell = actorCell, actorFaction = actorFaction, actorClass = actorClass })
       if (questRumorIndex) then
         responseCandidates[responseCandidatesCount] = {}
         responseCandidates[responseCandidatesCount].index = questRumorIndex
