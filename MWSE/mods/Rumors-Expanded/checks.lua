@@ -31,7 +31,18 @@ end
 
 local function checkDead(condition)
     local actor = tes3.getReference(condition.value).mobile
-    return actor and (not actor.health.current or actor.health.current == 0)
+
+    if (not actor) then
+        return false
+    end
+
+    local isDead = not actor.health.current or actor.health.current == 0
+
+    if (condition.comparator == "!=") then
+        return not isDead
+    end
+
+    return isDead
 end
 
 local function checkQuestCompleted(condition)

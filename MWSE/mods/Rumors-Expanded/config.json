@@ -474,7 +474,7 @@
           { "type": "journal", "questId": "HT_Stronghold", "value": 300 },
           { "type": "pcRank", "faction": "Telvanni", "value": 9 }
         ],
-        "text": "I know people in House Telvanni who are thinking about moving to Tel Uvirith in hopes that living on the frontier of Telvanni lands and serving the new Archmagister will help them to earn a better place in the House ranks. These are the times for young and ambitious to take over old and inert. Archmagister Gothren tried to oppose this change, and look where that got him?"
+        "text": "I know people in House Telvanni who are thinking about moving to Tel Uvirith in hopes that living on the frontier of Telvanni lands and serving the new Archmagister will help them to earn a better place in the House ranks. These are the times for young and ambitious to take over old and inert. Gothren tried to oppose this change, and look where that got him?"
       }
     ],
     "HT_Monopoly": [
