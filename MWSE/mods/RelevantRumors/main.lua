@@ -1,9 +1,9 @@
 local config = {}
-local cache = require("Rumors-Expanded.cache")
-local checks = require("Rumors-Expanded.checks")
-local debug = require("Rumors-Expanded.debug")
+local cache = require("RelevantRumors.cache")
+local checks = require("RelevantRumors.checks")
+local debug = require("RelevantRumors.debug")
 
-local MOD_NAME = 'Rumors Expanded Lua.ESP'
+local MOD_NAME = 'Relevant Rumors.esp'
 local QUEST_COMPLETED_INDEX = 100
 local RUMOR_CHANCE = 100
 local shouldInvalidateCache = false
@@ -19,7 +19,7 @@ local function printDebugMessage(title, value, skipNilValue)
         return
     end
 
-    print("[Rumors Expanded] " .. title)
+    print("[Relevant Rumors] " .. title)
 
     if (value == nil and skipNilValue) then
         return
@@ -215,7 +215,7 @@ local function initialized()
 
     printDebugMessage("Initializing...", nil, true)
 
-    config = json.loadfile("mods/Rumors-Expanded/config")
+    config = json.loadfile("mods/RelevantRumors/config")
 
     printDebugMessage("Initialized!", nil, true)
 end
