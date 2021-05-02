@@ -44,7 +44,7 @@ local function checkQuestCompleted(condition)
 end
 
 local function checkJournalStage(condition)
-  local questStage = tes3.getJournalIndex({ id = condition.questId })
+  local questStage = tes3.getJournalIndex({ id = condition.questId})
   return questStage == condition.value
 end
 
@@ -53,7 +53,8 @@ local function checkPCSex(condition)
 end
 
 local function checkPCRank(condition)
-  local faction = tes3.getFaction({ id = condition.faction })
+  local faction = tes3.getFaction(condition.faction)
+
   if (condition.comparator == '<') then
     return faction.playerRank < condition.value
   elseif (condition.comparator == '>') then
@@ -64,14 +65,14 @@ local function checkPCRank(condition)
 end
 
 local function checkPCRankDifference(condition, actor)
-  local faction = tes3.getFaction({ id = actor.faction })
+  local faction = actor.faction
 
-  if (not faction.playerJoined or faction.playerExpelled) then
+  if (not faction or not faction.playerJoined or faction.playerExpelled) then
     return false
   end
 
   local playerRank = faction.playerRank
-  local actorRank = actor.factionRank
+  local actorRank = actor.baseObject.factionRank
   local difference = condition.value
 
   if (condition.comparator == '<') then

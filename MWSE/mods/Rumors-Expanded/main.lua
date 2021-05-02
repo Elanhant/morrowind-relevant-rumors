@@ -55,7 +55,7 @@ local function getQuestRumor(questId, filters)
         conditionMatches = checks.checkPCRankDifference(condition, filters.actor)
       else
       end
-      printDebugMessage("Check '" .. checkType .. "':", conditionMatches)
+      -- printDebugMessage("Check '" .. checkType .. "':", conditionMatches)
       responseMatches = responseMatches and conditionMatches
     end
 

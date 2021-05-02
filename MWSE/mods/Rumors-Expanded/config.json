@@ -8,7 +8,7 @@
           { "type": "faction", "comparator": "!=", "value": "Telvanni" },
           { "type": "faction", "comparator": "!=", "value": "Morag Tong" }
         ],
-        "text": "Everyone's talking about the murder of Alven Salas. He was a member of the Morag Tong here in Sadrith Mora, you know? They say he owned some powerful artifact which is now gone. It would not suprise me if someone from House Telvanni wanted to lay their hands on it."
+        "text": "Everyone is talking about the murder of Alven Salas. He was a member of the Morag Tong here in Sadrith Mora, you know? They say he owned some powerful artifact which is now gone. It would not suprise me if someone from House Telvanni wanted to lay their hands on it."
       },
       {
         "id": "HT_BlackJinx_02",
@@ -108,7 +108,8 @@
       {
         "id": "HT_DrakePride_Tel_Aruhn",
         "conditions": [
-          { "type": "cell", "value": "Tel Aruhn" }
+          { "type": "cell", "value": "Tel Aruhn" },
+          { "type": "dead", "comparator": "!=", "value": "neloth" }
         ],
         "text": "It can be risky for low-ranking members of House Telvanni to have in possession artifacts beyond their power. Take Senise Thindo, for example. Everyone here in Tel Aruhn knew she had the Drake's Pride, a robe of great value for a mere Lawman. If she were more cautious, she would still be alive. Instead, she is dead and the Drake's Pride belongs to Master Neloth now."
       },
@@ -116,7 +117,8 @@
         "id": "HT_DrakePride_Telvanni_Not_Tel_Aruhn",
         "conditions": [
           { "type": "faction", "value": "Telvanni" },
-          { "type": "cell", "comparator": "!=", "value": "Tel Aruhn" }
+          { "type": "cell", "comparator": "!=", "value": "Tel Aruhn" },
+          { "type": "dead", "comparator": "!=", "value": "neloth" }
         ],
         "text": "You know, I just heard that Master Neloth got hold of the Robe of Drake's Pride. Apparently, he sent someone to murder the previous owner, some servant of Archmagister Gothren, and obtain the robe. There was no retaliation from Tel Aruhn, of course. That servant was just a Lawman and she brought it on herself."
       }
@@ -136,7 +138,7 @@
           { "type": "cell", "comparator": "!=", "value": "Ghostgate" },
           { "type": "dead", "comparator": "!=", "value": "ralyn othravel" }
         ],
-        "text": "A pilgrim recently passed through here on his way from Ghostgate and brought some peculiar news. Usually all you hear from Ghostgate are stories about blight monsters, but this time was different. Apparently, someone stole the legendary Auriel's Bow from one of the Ordinators there. Who could've been that arrogant to steal such a powerful artifact from one of the most protected strongholds on Vvardenfell?"
+        "text": "A pilgrim recently passed through here on his way from Ghostgate and brought some peculiar news. Usually all you hear from Ghostgate are stories about blight monsters, but this time was different. Apparently, someone stole the legendary Auriel's Bow from one of the Ordinators there. Who could have been arrogant enough to steal such a powerful artifact from one of the most protected strongholds on Vvardenfell?"
       }
     ],
     "HT_BaladasAlly": [
@@ -145,7 +147,7 @@
         "conditions": [
           { "type": "faction", "value": "NOT_GREAT_HOUSE" }
         ],
-        "text": "Apparently, House Telvanni now has a new Councilor. I think his name is Baladas Demnevanni. I've been told that he is not as eccentric as other Telvanni, but I doubt it — why would he decide to live on the outskirts of Gnisis, a Redoran village that is also near an Imperial fort?"
+        "text": "Apparently, House Telvanni now has a new Councilor. I think his name is Baladas Demnevanni. I've been told that he is not as eccentric as other Telvanni, but I doubt it. Why would he decide to live on the outskirts of Gnisis, a Redoran village that is also near an Imperial fort?"
       },
       {
         "id": "HT_BaladasAlly_Telvanni_Gothren_Alive",
@@ -182,58 +184,66 @@
       {
         "id": "HT_Odirniran_Commoner",
         "conditions": [
-          { "type": "faction", "value": "NOT_GREAT_HOUSE" }
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" },
+          { "type": "questCompleted", "comparator": "not_completed", "value": "HT_Shishi" }
         ],
         "text": "They say there was another clash between Hlaalu and Telvanni at a Velothi tower somewhere on Azura's Coast. I don't know the details, but it looks like the Yellows went on some sort of a rescue mission and got completely wiped out."
       },
       {
         "id": "HT_Odirniran_Telvanni",
         "conditions": [
-          { "type": "faction", "value": "Telvanni" }
+          { "type": "faction", "value": "Telvanni" },
+          { "type": "questCompleted", "comparator": "not_completed", "value": "HT_Shishi" }
         ],
         "text": "Heard about your part in lifting that Hlaalu siege at Odirniran. I hope it will teach the Yellows a lesson not to intervene into Telvanni affairs."
       },
       {
         "id": "HT_Odirniran_Hlaalu",
         "conditions": [
-          { "type": "faction", "value": "Hlaalu" }
+          { "type": "faction", "value": "Hlaalu" },
+          { "type": "questCompleted", "comparator": "not_completed", "value": "HT_Shishi" }
         ],
         "text": "My friends are talking about the failed rescue mission at Odirniran. It is a Velothi tower on Azura's Coast, and a home to a Telvanni sorcerer who kidnapped a member of House Hlaalu. The expeditionary force, led by the prisoner's sister, managed to get into the tower but never returned. That Brown bastard must have gotten some help from his House."
       },
       {
         "id": "HT_Odirniran_Redoran",
         "conditions": [
-          { "type": "faction", "value": "Redoran" }
+          { "type": "faction", "value": "Redoran" },
+          { "type": "questCompleted", "comparator": "not_completed", "value": "HT_Shishi" }
         ],
-        "text": "I've been told that House Hlaalu suffered a shameful defeat at Odirniran. Allegedly, one of their members was imprisoned by a Telvanni sorcerer, so the Hlaalu sent a rescue force. However, the expedition was overpowered and faced its demise. I'm told that the Telvanni mage got reinforcements from his House, but it must be utter nonsense. House Telvanni never looks out for their own."
+        "text": "I've been told that House Hlaalu suffered a shameful defeat at Odirniran. Allegedly, one of their members was imprisoned by a Telvanni sorcerer, so the Hlaalu sent a rescue force. However, the expedition was overpowered and faced its demise. They say that the Telvanni mage got reinforcements from his House, but it must be utter nonsense. House Telvanni never looks out for their own."
       }
     ],
     "HT_AttackRethan": [
       {
         "id": "HT_AttackRethan_Commoner",
         "conditions": [
-          { "type": "faction", "value": "NOT_GREAT_HOUSE" }
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" },
+          { "type": "questCompleted", "comparator": "not_completed", "value": "HT_AttackIndarys" }
         ],
         "text": "The Great Houses fight over remote frontier fortresses and towers all the time, but the recent murder of the Raynasa Rethan from House Hlaalu is different. She was killed in her own manor recently built on the Odai Plateau. No one was expecting an attack like this to happen so close to Balmora, the district seat of House Hlaalu."
       },
       {
         "id": "HT_AttackRethan_Hlaalu",
         "conditions": [
-          { "type": "faction", "value": "Hlaalu" }
+          { "type": "faction", "value": "Hlaalu" },
+          { "type": "questCompleted", "comparator": "not_completed", "value": "HT_AttackIndarys" }
         ],
         "text": "Everyone in House Hlaalu is talking about Raynasa Rethan and her murder. She was killed by some Telvanni in her own manor on the Odai Plateau. All the recent conflicts between Great Houses took many Hlaalu lives, but few so close to Balmora. We can only hope that the Council will retaliate in some way. If you ask me, it is time to stop getting our hands dirty and hire the Morag Tong instead."
       },
       {
         "id": "HT_AttackRethan_Redoran",
         "conditions": [
-          { "type": "faction", "value": "Redoran" }
+          { "type": "faction", "value": "Redoran" },
+          { "type": "questCompleted", "comparator": "not_completed", "value": "HT_AttackIndarys" }
         ],
         "text": "Have you heard? A Hlaalu noble had been killed in her own manor not far from Balmora. I am sure this was not House Redoran's doing, perhaps House Telvanni wanted to retaliate for the recent attack on their tower at Odirniran?"
       },
       {
         "id": "HT_AttackRethan_Telvanni",
         "conditions": [
-          { "type": "faction", "value": "Telvanni" }
+          { "type": "faction", "value": "Telvanni" },
+          { "type": "questCompleted", "comparator": "not_completed", "value": "HT_AttackIndarys" }
         ],
         "text": "I've heard about your involvement in the recent \"retiring\" of Raynasa Rethan. Thanks to you and Master Aryon, House Telvanni has demonstrated that our reach extends a lot farther than Grazelands and Azura's Coast."
       }
@@ -362,7 +372,7 @@
           { "type": "cell", "comparator": "!=", "value": "Sadrith Mora, Tel Naga" },
           { "type": "faction", "value": "Telvanni" }
         ],
-        "text": "I hear that someone broke into Master Neloth's treasury and stole the Ring of Equity. Whoever got that ring must be quite bold — even if he never even touched it, Master Neloth is petty enough to send someone after the thief."
+        "text": "I hear that someone broke into Master Neloth's treasury and stole the Ring of Equity. Whoever got that ring must be quite bold: even if he never even touched it, Master Neloth is petty enough to send someone after the thief."
       }
     ],
     "HT_SlaveRebellion": [
@@ -410,15 +420,15 @@
         "id": "HT_Stronghold_1st_Stage_Commoner",
         "conditions": [
           { "type": "faction", "value": "NOT_GREAT_HOUSE" },
-          { "type": "journal", "value": 100 }
+          { "type": "journal", "questId": "HT_Stronghold", "value": 100 }
         ],
-        "text": "Everyone knows that younger Telvanni wizards are taking over remote abandoned Velothi towers, but now I hear that one of them is building a stronghold somewhere in Molag Amur with a charter from the Duke himself. Even though this seems like a legitimate expansion, I don't think other Great House will tolerate it."
+        "text": "Everyone knows that younger Telvanni wizards are taking over remote abandoned Velothi towers, but now I hear that one of them is building a stronghold somewhere in Molag Amur with a charter from the Duke himself. Even though this seems like a legitimate expansion, I do not think other Great House will tolerate it."
       },
       {
         "id": "HT_Stronghold_1st_Stage_Hlaalu",
         "conditions": [
           { "type": "faction", "value": "Hlaalu" },
-          { "type": "journal", "value": 100 }
+          { "type": "journal", "questId": "HT_Stronghold", "value": 100 }
         ],
         "text": "I have heard many peculiar things, but an upstart Telvanni who gets the permission from Duke Vedam Dren to build a stronghold? Surely House Telvanni could not have decided to stop their rogue operations? They have been sending their mages to towers all over Vvardenfell for the past few years, and both Hlaalu and Redoran tried to stop them."
       },
@@ -426,7 +436,7 @@
         "id": "HT_Stronghold_1st_Stage_Redoran",
         "conditions": [
           { "type": "faction", "value": "Redoran" },
-          { "type": "journal", "value": 100 }
+          { "type": "journal", "questId": "HT_Stronghold", "value": 100 }
         ],
         "text": "I never thought that \"Telvanni\" and \"legitimacy\" could be mentioned in the same sentence, but now there are rumors about some mage-lord who actually received the Duke's permission to built a tower somewhere in Molag Amur. Even if all is done properly, House Redoran will be keeping a close eye on that stronghold. You can never trust the Telvanni."
       },
@@ -434,16 +444,16 @@
         "id": "HT_Stronghold_3rd_Stage_Commoner",
         "conditions": [
           { "type": "faction", "value": "NOT_GREAT_HOUSE" },
-          { "type": "journal", "value": 300 },
+          { "type": "journal", "questId": "HT_Stronghold", "value": 300 },
           { "type": "pcRank", "faction": "Telvanni", "value": 9 }
         ],
-        "text": "Not so long ago, Uvirith's Grave was a desolate landmark in the wilderness of Molag Amur, and now it is the seat of the new Archmagister of House Telvanni. I hear that the tower town of Tel Uvirith is protected by all sorts of unconventional guard — some say Daedra, others mention Dwemer machines, and there even are claims about Sloads, can you believe that?"
+        "text": "Not so long ago, Uvirith's Grave was a desolate landmark in the wilderness of Molag Amur, and now it is the seat of the new Archmagister of House Telvanni. I hear that the tower town of Tel Uvirith is protected by all sorts of unconventional guard: some say Daedra, others mention Dwemer machines, and there even are claims about Sloads, can you believe that?"
       },
       {
         "id": "HT_Stronghold_3rd_Stage_Hlaalu",
         "conditions": [
           { "type": "faction", "value": "Hlaalu" },
-          { "type": "journal", "value": 300 },
+          { "type": "journal", "questId": "HT_Stronghold", "value": 300 },
           { "type": "pcRank", "faction": "Telvanni", "value": 9 }
         ],
         "text": "I wonder if House Hlaalu will be sending an envoy to Tel Uvirith soon. The new Archmagister of House Telvanni seems to be more involved in the Vvardenfell politics compared to Archmagister Gothren. Do you believe all those rumors about Dwemer or Daedric guards that are said to be guarding the tower town?"
@@ -452,7 +462,7 @@
         "id": "HT_Stronghold_3rd_Stage_Redoran",
         "conditions": [
           { "type": "faction", "value": "Redoran" },
-          { "type": "journal", "value": 300 },
+          { "type": "journal", "questId": "HT_Stronghold", "value": 300 },
           { "type": "pcRank", "faction": "Telvanni", "value": 9 }
         ],
         "text": "For the first time in centuries the Archmagister of House Telvanni settles on the very frontier of Telvanni lands. Many in House Redoran are worried that this means even further territory expansion for those blasphemous wizards. They also seem to have started getting charters from the Duke, so neither Redoran nor Hlaalu can send expeditionary forces to keep the mages in line."
@@ -461,7 +471,7 @@
         "id": "HT_Stronghold_3rd_Stage_Telvanni",
         "conditions": [
           { "type": "faction", "value": "Telvanni" },
-          { "type": "journal", "value": 300 },
+          { "type": "journal", "questId": "HT_Stronghold", "value": 300 },
           { "type": "pcRank", "faction": "Telvanni", "value": 9 }
         ],
         "text": "I know people in House Telvanni who are thinking about moving to Tel Uvirith in hopes that living on the frontier of Telvanni lands and serving the new Archmagister will help them to earn a better place in the House ranks. These are the times for young and ambitious to take over old and inert. Archmagister Gothren tried to oppose this change, and look where that got him?"
@@ -473,7 +483,7 @@
         "conditions": [
           { "type": "faction", "value": "NOT_GREAT_HOUSE" },
           { "type": "faction", "value": "Mages Guild", "comparator": "!=" },
-          { "type": "journal", "value": 100 }
+          { "type": "journal", "questId": "HT_Monopoly", "value": 100 }
         ],
         "text": "The politics of the Great Houses are very complicated and you can never know what to expect from them. Take House Telvanni and House Redoran, for example. Apparently, the Telvanni have managed to convince several Redoran councilors to support their resolution to the Grand Council to end the Mages Guild monopoly on magic services. And yet you can be sure that these Houses will be at each other's throats in no time."
       },
@@ -481,7 +491,7 @@
         "id": "HT_Monopoly_Hlaalu",
         "conditions": [
           { "type": "faction", "value": "Hlaalu" },
-          { "type": "journal", "value": 100 }
+          { "type": "journal", "questId": "HT_Monopoly", "value": 100 }
         ],
         "text": "Have you heard about the resolution to overturn the Mages Guild monopoly? It has been proposed by House Telvanni, and now they got enough support from House Redoran to have a good chance at passing it. What an unexpected display of diplomacy from the Browns!"
       },
@@ -489,7 +499,7 @@
         "id": "HT_Monopoly_Redoran",
         "conditions": [
           { "type": "faction", "value": "Redoran" },
-          { "type": "journal", "value": 100 }
+          { "type": "journal", "questId": "HT_Monopoly", "value": 100 }
         ],
         "text": "House Redoran does not always agree with House Telvanni, but it is good to see that our Houses can still cooperate. Everyone knows that the Mages Guild monopoly is unfair, and overturning it will benefit not just the Telvanni, but all of Morrowind."
       },
@@ -497,7 +507,7 @@
         "id": "HT_Monopoly_Telvanni",
         "conditions": [
           { "type": "faction", "value": "Telvanni" },
-          { "type": "journal", "value": 100 }
+          { "type": "journal", "questId": "HT_Monopoly", "value": 100 }
         ],
         "text": "Persuading Redoran councilors to support our resolution to overturn the Mages Guild monopoly is no small task. House Telvanni does not care much about politics, but this unfair policy has been affecting many of us. I hope that with the support you got from House Redoran this disgraceful monopoly will be finally ended."
       },
@@ -505,17 +515,17 @@
         "id": "HT_Monopoly_MG_LowRank",
         "conditions": [
           { "type": "faction", "value": "Mages Guild" },
-          { "type": "journal", "value": 100 },
+          { "type": "journal", "questId": "HT_Monopoly", "value": 100 },
           { "type": "pcRankDifference", "comparator": "<", "value": -4 },
           { "type": "pcRank", "faction": "Mages Guild", "value": 5, "comparator": "<" }
         ],
-        "text": "What is it about you helping House Telvanni to dispute our monopoly on magic services? It's a wonder that you have not been expelled from the Guild for this!"
+        "text": "What is it about you helping House Telvanni to make a case against our monopoly on magic services? It is a wonder that you have not been expelled from the Guild for this, %PCRank!"
       },
       {
         "id": "HT_Monopoly_MG_HighRank",
         "conditions": [
           { "type": "faction", "value": "Mages Guild" },
-          { "type": "journal", "value": 100 },
+          { "type": "journal", "questId": "HT_Monopoly", "value": 100 },
           { "type": "pcRank", "faction": "Mages Guild", "value": 4, "comparator": ">" }
         ],
         "text": "I hope you know what you are doing, trying to convince House Redoran to support revoking the Mages Guild monopoly. I do not mind a little bit of competition, but some people in the Guild might question your intentions, %PCRank."
