@@ -5,7 +5,7 @@
 use lib '.';
 use JSON;
 
-my $configFileName = 'config.json';
+my $configFileName = '../MWSE/mods/RelevantRumors/config.json';
 
 my $json_text = do {
    open(my $json_fh, "<", $configFileName)
