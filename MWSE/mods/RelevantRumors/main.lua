@@ -5,7 +5,7 @@ local debug = require("RelevantRumors.debug")
 
 local MOD_NAME = 'Relevant Rumors.esp'
 local QUEST_COMPLETED_INDEX = 100
-local RUMOR_CHANCE = 100
+local RUMOR_CHANCE = 50
 local shouldInvalidateCache = false
 
 local prevResponseGlobalVarName = nil
@@ -30,7 +30,6 @@ end
 
 local function getQuestRumor(questId, filters)
     local responsesPool = config.responses[questId]
-    local rumor = {}
 
     for responseIndex, responseMeta in pairs(responsesPool) do
         local responseMatches = true
@@ -40,7 +39,11 @@ local function getQuestRumor(questId, filters)
             if (checkType == 'cell') then
                 conditionMatches = checks.checkCell(condition, filters.actorCell)
             elseif (checkType == 'faction') then
-                conditionMatches = checks.checkFaction(condition, filters.actorFaction)
+                local actorFaction = nil
+                if (filters.actor.faction) then
+                    actorFaction = filters.actor.faction.id
+                end
+                conditionMatches = checks.checkFaction(condition, actorFaction)
             elseif (checkType == 'dead') then
                 conditionMatches = checks.checkDead(condition)
             elseif (checkType == 'questCompleted') then
@@ -113,12 +116,6 @@ local function getResponseCandidates(mobileActor)
     local responseCandidates = {}
     local responseCandidatesCount = 1
     local actorCell = mobileActor.cell.id
-    local actorClass = mobileActor.object.class.id
-    local actorFaction = nil
-
-    if (mobileActor.object.faction) then
-        actorFaction = mobileActor.object.faction.id
-    end
 
     for questId, questResponses in pairs(config.responses) do
         local isCompleted = tes3.getJournalIndex({
@@ -128,9 +125,7 @@ local function getResponseCandidates(mobileActor)
         if (isCompleted) then
             local questRumorIndex = getQuestRumor(questId, {
                 actor = mobileActor.object,
-                actorCell = actorCell,
-                actorFaction = actorFaction,
-                actorClass = actorClass
+                actorCell = actorCell
             })
             if (questRumorIndex) then
                 responseCandidates[responseCandidatesCount] = {}
