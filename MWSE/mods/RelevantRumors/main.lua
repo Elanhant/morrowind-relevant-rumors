@@ -80,11 +80,6 @@ local function randomizeResponse(responseCandidates)
         return nil
     end
 
-    -- Only show random rumors with a set probability
-    if (math.random(100) > RUMOR_CHANCE) then
-        return nil
-    end
-
     local leastRecentUsageTime = os.clock()
     local selectedResponseIndex = nil
 
@@ -169,6 +164,11 @@ local function pickRandomRumor(e)
     if (shouldInvalidateCache) then
         cache.invalidate()
         shouldInvalidateCache = false
+    end
+
+    -- Only show random rumors with a set probability
+    if (math.random(100) > RUMOR_CHANCE) then
+        return nil
     end
 
     local menuDialog = e.element
