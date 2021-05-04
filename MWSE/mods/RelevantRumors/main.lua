@@ -3,16 +3,15 @@ local cache = require("RelevantRumors.cache")
 local checks = require("RelevantRumors.checks")
 local debug = require("RelevantRumors.debug")
 
+local RUMOR_CHANCE = 50
+local DEBUG = false
+
 local MOD_NAME = 'Relevant Rumors.esp'
 local QUEST_COMPLETED_INDEX = 100
-local RUMOR_CHANCE = 50
 local shouldInvalidateCache = false
-
 local prevResponseGlobalVarName = nil
 
 local responseLastUsedAt = {}
-
-local DEBUG = true
 
 local function printDebugMessage(title, value, skipNilValue)
     if (not DEBUG) then
