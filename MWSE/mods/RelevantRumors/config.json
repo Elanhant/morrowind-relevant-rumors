@@ -315,7 +315,7 @@
           { "type": "faction", "value": "Redoran" },
           { "type": "cell", "comparator": "!=", "value": "Maar Gan" }
         ],
-        "text": "I have heard the most furious news from Maar Gan. An entire troop of Redoran soldiers was wiped out right after they almost drove out Telvanni mages from Shishi. Seems like someone from House Telvanni sent reinforcements to aid their own, contrary to their infamous isolationism. I wish we could just bury the entrance to that tower, but these mages probably will just teleport away."
+        "text": "I have heard the most outrageous news from Maar Gan. An entire troop of Redoran soldiers was wiped out right after they almost drove out Telvanni mages from Shishi. Seems like someone from House Telvanni sent reinforcements to aid their own, contrary to their infamous isolationism. I wish we could just bury the entrance to that tower, but these mages probably will just teleport away."
       },
       {
         "id": "HT_Shishi_Redoran_Maar_Gan",
