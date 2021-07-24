@@ -530,6 +530,510 @@
         ],
         "text": "I hope you know what you are doing, trying to convince House Redoran to support revoking the Mages Guild monopoly. I do not mind a little bit of competition, but some people in the Guild might question your intentions, %PCRank."
       }
+    ],
+    "HR_CultElimination": [
+      {
+        "id": "HR_CultElimination_AldVelothi",
+        "conditions": [
+          { "type": "cell", "value": "Ald Velothi" },
+          { "type": "race", "value": "Dark Elf" }
+        ],
+        "text": "Everyone here in Ald Velothi owes you and Theldyn Virith a debt. Evil tongues in bigger cities talk that House Redoran can hardly be called 'noble' now, but you both prove them wrong. Old Blue Fin, the diseased shalk at the Ashimanu Mine, those vicious kagouti and now the cultists at Ashalmawia? Not many have done as much for our small villages here in West Gash. Almalexia's blessings upon you, outlander."
+      },
+      {
+        "id": "HR_CultElimination_Gnisis",
+        "conditions": [
+          { "type": "cell", "value": "Gnisis" }
+        ],
+        "text": "Is it right that you were the one who dealt with those kagouti on the trade route to Ald'ruhn? Three blessings to you, those beasts were the scourge of caravans lately."
+      },
+      {
+        "id": "HR_CultElimination_Khuul",
+        "conditions": [
+          { "type": "cell", "value": "Khuul" }
+        ],
+        "text": "A fisherman from Ald Velothi told me that you have killed some Daedra worshippers in Ashalmawia? They might not show it, but many people here in Khuul are grateful to you for this. Living under the shadow of that cursed place, we have always been conscious about who or what might be lurking inside."
+      },
+      {
+        "id": "HR_CultElimination_AldRuhn",
+        "conditions": [
+          { "type": "cell", "value": "Ald-ruhn" }
+        ],
+        "text": "I hear you've been busy in the northwest on the orders of Theldyn Virith, helping the people of Ald Velothi and ensuring the safety of trade routes between Ald'ruhn and Gnisis. I am sure many people are glad to see that the traditional values of House Redoran such as caring about common folks still live on, contrary to Hlaalu and Telvanni claims."
+      }
+    ],
+    "HR_ShishiReport": [
+      {
+        "id": "HR_ShishiReport_Commoner",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" }
+        ],
+        "text": "Other Great Houses do not tolerate the aggressive Telvanni expansion, and House Redoran has been the most outspoken on the Grand Council. They also send troops to the illegal Telvanni bases to drive the mages out. Most recently a party of Redoran warriors took over a Velothi tower somewhere near Maar Gan. What were those Browns thinking, trying to set up a base so deep in the Redoran lands?"
+      },
+      {
+        "id": "HR_ShishiReport_Hlaalu",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" }
+        ],
+        "text": "I must admit it is good to see House Redoran finally doing something with the illegal Telvanni bases instead of just voicing their 'disapproval' on the Grand Council. I hope that their recent mission at Shishi means that House Hlaalu will not be fighting the Brown expansion on its own anymore."
+      },
+      {
+        "id": "HR_ShishiReport_RedoranTelvanniAlive",
+        "conditions": [
+          { "type": "faction", "value": "Redoran" },
+          { "type": "dead", "comparator": "!=", "value": "faves andas" }
+        ],
+        "text": "Weren't you the one who brought back the report from Shishi? I am glad that Theldyn Virith had sent Brerama Selas and her troop to take care of those Brown mages and mercenaries. We cannot allow Telvanni set up their bases in Redoran lands! Pity that their leader had apparently managed to escape, though. May he rot in the depths of Oblivion!"
+      },
+      {
+        "id": "HR_ShishiReport_RedoranTelvanniDead",
+        "conditions": [
+          { "type": "faction", "value": "Redoran" },
+          { "type": "dead", "value": "faves andas" }
+        ],
+        "text": "One of my friends says that you have been in the party sent to deal with the Telvanni at Shishi. More than that, he claims it was you who found and brought justice to their leader. What a coward that blasphemer must have been, running away and hiding in some hole while his servants and mercenaries were dying from Redoran swords. House Telvanni should think twice before trying to set up another base in our lands."
+      },
+      {
+        "id": "HR_ShishiReport_Telvanni",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" }
+        ],
+        "text": "I hear there has been a lot of cheering and back-slapping among Redorans lately after the success of their mission at Shishi. Let them celebrate this small stroke of luck for now. Soon they will realize that when a weak Telvanni falls, a stronger one will take his place."
+      }
+    ],
+    "HR_ClearSarethi": [
+      {
+        "id": "HR_ClearSarethi_Commoner",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" },
+          { "type": "faction", "comparator": "!=", "value": "Temple" },
+          { "type": "cell", "comparator": "!=", "value": "Ald-ruhn" },
+          { "type": "questCompleted", "comparator": "not_completed", "value": "HR_MorvaynManor" }
+        ],
+        "text": "They say more and more people are behaving strangely all over Vvardenfell. Some are said to attack or even kill their friends with no recollection of their actions. If you believe the recent rumors from Ald'ruhn, a Redoran progeny murdered his best friend under the influence of some ash statue."
+      },
+      {
+        "id": "HR_ClearSarethi_Redoran",
+        "conditions": [
+          { "type": "faction", "value": "Redoran" }
+        ],
+        "text": "It is a disgrace that some in House Redoran were so quick to blame Varvur Sarethi for the murder of Bralen Carvaren without proper trial. With all the rumors about the Morag Tong trying to assassinate Athyn Sarethi, it is clear that someone sees the 'Hope of the Redoran' as an obstacle."
+      },
+      {
+        "id": "HR_ClearSarethi_Temple",
+        "conditions": [
+          { "type": "faction", "value": "Temple" },
+          { "type": "cell", "comparator": "!=", "value": "Ald-ruhn" },
+          { "type": "journal", "questId": "C3_DestroyDagoth", "value": 50}
+        ],
+        "text": "Lloros Sarano from the Ald'ruhn Temple had reported that someone had committed a murder under the influence of an ash statue. Our priests are now urging the faithful to bring any strangely looking statues to the Temple, but people might not even be aware of an ash statue in their home. May the Healing Mother guide us."
+      }
+    ],
+    "HR_HonorChallenge": [
+      {
+        "id": "HR_HonorChallenge_CommonerNeranoDead",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" },
+          { "type": "dead", "value": "ondres nerano" }
+        ],
+        "text": "You would think that Balmora is the safest city on Vvardenfell for a Hlaalu noble. And yet, Ralen Hlaalo was found dead in his manor, and recently some Redoran had walked right into Ondres Nerano's house and murdered him in cold blood. Apparently, Nerano had been slandering about Archmaster Venym's affair with another councilor's wife. Very uncharacteristic of House Redoran to resort to murder instead of an honorable duel."
+      },
+      {
+        "id": "HR_HonorChallenge_HlaaluNeranoDead",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" },
+          { "type": "dead", "value": "ondres nerano" }
+        ],
+        "text": "Redorans have surely lost their way. Ondres Nerano might have been in the wrong, spreading all those slanders about Bolvyn Venim, but it is no excuse for murdering him in such a dishonorable manner. Why not challenge him to a duel? Why not hire the Morag Tong? Redoran is a House of hypocrisy, not honor or glory."
+      },
+      {
+        "id": "HR_HonorChallenge_RedoranNeranoDead",
+        "conditions": [
+          { "type": "faction", "value": "Redoran" },
+          { "type": "dead", "value": "ondres nerano" }
+        ],
+        "text": "The murder of Ondres Nerano has been yet another blow to the reputation of our House. Hlaalu are using this incident to convince everyone that Redorans are just as ruthless as they are, and Telvanni are feeling smug after seeing how we fell to their own level in dealing with problems."
+      },
+      {
+        "id": "HR_HonorChallenge_RedoranNeranoAlive",
+        "conditions": [
+          { "type": "faction", "value": "Redoran" },
+          { "type": "dead", "comparator": "!=", "value": "ondres nerano" }
+        ],
+        "text": "I appreciate that you convinced Ondres Nerano to stop spreading those rumors about the Archmaster. Can you imagine -- a noble of a Great House slandering around like some tavern wench? Hlaalu seem to borrow everything from the West, good and bad alike."
+      },
+      {
+        "id": "HR_HonorChallenge_Telvanni",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" },
+          { "type": "dead", "value": "ondres nerano" }
+        ],
+        "text": "Have you noticed the recent shift in the way House Redoran handles its disputes with other Great Houses? Sending troops of soldiers to kill Telvanni instead of letting the Grand Council handle their complaints, murdering Hlaalu nobles for harmless rumors instead of challenging them to a duel. It is quite amusing that they still insist on calling themselves 'honorable' when they are not that different from Hlaalu or Telvanni."
+      }
+    ],
+    "HR_Shurinbaal": [
+      {
+        "id": "HR_Shurinbaal_Commoner",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" },
+          { "type": "region", "value": "Bitter Coast Region" }
+        ],
+        "text": "No one can tell exactly how many smuggler dens are hidden in the Bitter Coast. I heard that House Redoran had raided one of them after they traced some smuggled goods from Ald'ruhn to Gnaar Mok. It is good someone is trying to deal with this problem, but I am afraid a single attack on one base is not going to change much."
+      },
+      {
+        "id": "HR_Shurinbaal_AldRuhn",
+        "conditions": [
+          { "type": "cell", "value": "Ald-ruhn" }
+        ],
+        "text": "Everyone knows that the Bitter Coast is a smuggler's heaven, and it is good to hear that House Redoran has started clearing some of the criminal dens there. But those smugglers must have contacts in major cities, including Ald'ruhn. I hope they can be brought to justice too."
+      }
+    ],
+    "HR_MadMilk": [
+      {
+        "id": "HR_MadMilk_CommonerMandasCured",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" },
+          { "type": "journal", "questId": "HR_MadMilk", "value": 110}
+        ],
+        "text": "It seemed like the nobility of House Redoran have been going through its dark times with all the assassination attempts, blight monsters' attacks and rumors of adultery. But it is a welcome change to hear some good news from Ald'ruhn -- a Redoran lord who was thought to be incurably mad has recovered once his daughter had been rescued from the Telvanni imprisonment."
+      },
+      {
+        "id": "HR_MadMilk_CommonerMandasDead",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" },
+          { "type": "journal", "questId": "HR_MadMilk", "value": 100}
+        ],
+        "text": "The days of House Redoran glory seem to be far behind. Attempted assassinations, adultery, blight monsters plaguing settlements. There were even rumors of a Redoran lord who had gone mad and started demanding tributes from travelers. Apparently, his insanity was so deep that the Redoran Council had to send someone to kill the man. But swords will be of little help in the other challenges facing the Redoran these days."
+      },
+      {
+        "id": "HR_MadMilk_HlaaluMandasCured",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" },
+          { "type": "journal", "questId": "HR_MadMilk", "value": 110}
+        ],
+        "text": "I am glad to hear that Arethan Mandas of House Redoran has seemingly regained his senses and ordered his followers to stop attacking travelers. It is tragic how the mind can be affected by one's own daughter being captive or even killed by a Telvanni wizard. And yet I am baffled -- why couldn't House Redoran send someone to rescue her earlier? Why did they wait for so long?"
+      },
+      {
+        "id": "HR_MadMilk_HlaaluMandasDead",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" },
+          { "type": "journal", "questId": "HR_MadMilk", "value": 100}
+        ],
+        "text": "House Redoran is losing its grip -- first they let the Telvanni kidnap Lord Mandas' daughter, then they ignored him slipping into insanity and shut their eyes to his band of thugs attacking travelers near Ald'ruhn. And when they had finally decided to take action, they resorted to killing the once honorable and respected Redoran lord. Could they not try and cure his madness? Ask the Temple priests for help? Attempt to rescue the man's daughter from the Telvanni?"
+      },
+      {
+        "id": "HR_MadMilk_RedoranMandasCured",
+        "conditions": [
+          { "type": "faction", "value": "Redoran" },
+          { "type": "journal", "questId": "HR_MadMilk", "value": 110}
+        ],
+        "text": "Even the best of us can lose their mind to Sheogorath when we suffer, and I cannot imagine how painful it was for Arethan Mandas when his daughter was kidnapped. Rescuing her and restoring Lord Mandas to his senses is no small feat, %PCRank, and goes beyond just doing your duty to your House."
+      },
+      {
+        "id": "HR_MadMilk_RedoranMandasDead",
+        "conditions": [
+          { "type": "faction", "value": "Redoran" },
+          { "type": "journal", "questId": "HR_MadMilk", "value": 100}
+        ],
+        "text": "Arethan Mandas once was a great man and a true embodiment of the Redoran values. What a sad end -- to lose his daughter, his mind and, finally, his life. I wish it did not come to this, but I am sure you did everything you could to try and cure his madness."
+      },
+      {
+        "id": "HR_MadMilk_TelvanniMandasCured",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" },
+          { "type": "journal", "questId": "HR_MadMilk", "value": 110}
+        ],
+        "text": "Last I heard, the Mad Lord of Milk is mad no more, thanks to some daring Redoran who managed to rescue the lord's daughter held captive at Tel Fyr. Of course, House Redoran will now demand some kind of retribution, but that would be futile. House Telvanni holds no authority over Divayth Fyr. The man does as he pleases -- I suspect that the rescue attempt was successful only because he got bored with the girl and wanted to get rid of her anyway."
+      },
+      {
+        "id": "HR_MadMilk_TelvanniMandasDead",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" },
+          { "type": "journal", "questId": "HR_MadMilk", "value": 100}
+        ],
+        "text": "The Reds are trying to blame House Telvanni for the death of one of their nobles who went insane after his daughter had been imprisoned in Tel Fyr. But what could we do? Divayth Fyr might be a Telvanni, but he answers to no-one but himself. Why couldn't the Redorans send some troops to rescue the girl? After all, brute force has always been their preferred way of settlng disputes with our House."
+      }
+    ],
+    "HR_Archmaster": [
+      {
+        "id": "HR_Archmaster_Commoner",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" }
+        ],
+        "text": "These are fascinating times. An outlander gets the support of Redoran councilors, bests Bolvyn Venim in the Arena and becomes the new Archmaster of House Redoran. Isn't it ironic that it is Redoran and not Hlaalu who now have an outlander as their leader? Seems like the Yellows are not as ready to change with the times, despite their claims."
+      },
+      {
+        "id": "HR_Archmaster_Hlaalu",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" }
+        ],
+        "text": "I am surprised that House Redoran is now led by an upstart outlander. Bolvyn Venim's reputation was that of a ruthless and immoral yet effective leader. Many looked up to Athyn Sarethi as his potential replacement, but in the end it is Sarethi's protege who becomes the new Archmaster. One can hope that House Redoran will now focus on its internal struggles instead of constantly looking for a fight with Hlaalu and Telvanni."
+      },
+      {
+        "id": "HR_Archmaster_Redoran",
+        "conditions": [
+          { "type": "faction", "value": "Redoran" }
+        ],
+        "text": "As you have risen in the ranks of our House, you have demonstrated the very qualities that are the essence of being a Redoran -- honor, duty, righteousness. Bolvyn Venim was a great leader, but he had strayed away from these values and had led us into stagnation and even decadence. With you as the Redoran Archmaster and the support of other councillors we have new hope to restore our glory!"
+      },
+      {
+        "id": "HR_Archmaster_Telvanni",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" }
+        ],
+        "text": "I cannot say that I feel enthusiastic about the new Archmaster of House Redoran. Bolvyn Venim was predictable, and his methods quite often were close to the Telvanni ways. This new Archmaster, however, is an outlander who climbed the ranks suspiciously fast -- I find it possible that this is just a ruse by Athyn Sarethi, the 'Hope of the Redoran', to rule the Reds through his loyal puppet. Whoever is in charge, House Telvanni is not going to stop our endeavors on Vvardenfell."
+      }
+    ],
+    "HR_MorvaynManor": [
+      {
+        "id": "HR_MorvaynManor_Commoner",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" },
+          { "type": "cell", "comparator": "!=", "value": "Ald-ruhn" },
+          { "type": "questCompleted", "comparator": "not_completed", "value": "C3_DestroyDagoth", "completedIndex": 50 }
+        ],
+        "text": "First you hear rumors about strange statues that make people loose their minds, and now a friend of mine from Ald'ruhn claims that these statues can attract corprus monsters. I would dismiss those rumors as nonsense, but apparently the Temple priests have received warnings to be more vigilant and ask the faithful about any strangely looking artifacts."
+      },
+      {
+        "id": "HR_MorvaynManor_AldRuhn",
+        "conditions": [
+          { "type": "cell", "value": "Ald-ruhn" },
+          { "type": "faction", "comparator": "!=", "value": "Redoran" }
+        ],
+        "text": "What happened to Remas Morvayn is terrible, but it is a relief to know that Morvayn Manor has been purged from those creatures with your help. I expect Mistress Brara Morvayn will start making preparations to move back there, but House Redoran must ensure that no more corprus monsters get so close to Ald'ruhn."
+      },
+      {
+        "id": "HR_MorvaynManor_Hlaalu",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" }
+        ],
+        "text": "With all its shortcomings, House Redoran still holds the line between people of Morrowind and the monsters from the Red Mountain. So it is no wonder that many were extremely troubled to hear that one of Redoran councilors was attacked by ash creatures in his own manor. Apparenrtly, the Temple and the Reds have purged the manor, but how can we confidence in the Redoran's ability to protect Vvardenfell if they could not prevent an attack in the very seat of their power?"
+      },
+      {
+        "id": "HR_MorvaynManor_Redoran",
+        "conditions": [
+          { "type": "faction", "value": "Redoran" }
+        ],
+        "text": "What happened to Remas Morvayn is terrible, but it is a relief to know that Morvayn Manor has been purged from those creatures with your help. I expect Mistress Brara Morvayn will start making preparations to move back there, but House Redoran must ensure that no more corprus monsters get so close to Ald'ruhn."
+      },
+      {
+        "id": "HR_MorvaynManor_Telvanni",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" }
+        ],
+        "text": "Can you believe that ash monsters had killed a Redoran councilor in his own home on the outskirts of Ald'ruhn? What is the point of the Reds' insistence on hindering the expansion of Telvanni and Hlaalu territories when they cannot protect the very seat of their power from some deformed creatures?"
+      }
+    ],
+    "HR_CalderaDisrupt": [
+      {
+        "id": "HR_CalderaDisrupt_CommonerCalderaRevolt",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" },
+          { "type": "cell", "value": "Caldera" },
+          { "type": "dead", "comparator": "!=", "value": "odral helvi"},
+          { "type": "dead", "comparator": "!=", "value": "stlennius vibato"}
+        ],
+        "text": "The Caldera ebony mines have been shut down after the recent slave revolt, and many here in the town are not sure what is going to happen next. Of course, House Hlaalu will try to buy new slaves or hire some workers, but there are also talks about possible Redoran takeover."
+      },
+      {
+        "id": "HR_CalderaDisrupt_CommonerCalderaMurder",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" },
+          { "type": "cell", "value": "Caldera" },
+          { "type": "dead", "value": "odral helvi"},
+          { "type": "dead", "value": "stlennius vibato"}
+        ],
+        "text": "The Caldera ebony mines have been shut down after the deaths of Odral Helvi and Stlennius Vibato, and many here in the town are not sure what is going to happen next. Of course, House Hlaalu will try to find new mine operators, but there are also talks about possible Redoran takeover."
+      },
+      {
+        "id": "HR_CalderaDisrupt_CommonerRevolt",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" },
+          { "type": "cell", "comparator": "!=", "value": "Caldera" },
+          { "type": "dead", "comparator": "!=", "value": "odral helvi"},
+          { "type": "dead", "comparator": "!=", "value": "stlennius vibato"}
+        ],
+        "text": "They say that the Caldera ebony mines have been shut down after a slave revolt. House Redoran was behind it, if you believe the rumors. A bit uncharacteristic for them, but also effective. The Hlaalu will need some time to find new workforce, and I can't imagine the Empire will be happy about this delay."
+      },
+      {
+        "id": "HR_CalderaDisrupt_CommonerMurder",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" },
+          { "type": "cell", "comparator": "!=", "value": "Caldera" },
+          { "type": "dead", "value": "odral helvi"},
+          { "type": "dead", "value": "stlennius vibato"}
+        ],
+        "text": "They say that the Caldera ebony mines have been shut down after Hlaalu mine operators have been killed by someone from House Redoran. It is a risky move, and will certainly sour the relationship with House Hlaalu even further, but it is also very effective. The Hlaalu will need some time to find experienced operators, and I can't imagine the Empire will be happy about this delay."
+      },
+      {
+        "id": "HR_CalderaDisrupt_Hlaalu",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" }
+        ],
+        "text": "Shutting down ebony mining in Caldera is not as bad for House Hlaalu as the Reds claim. Yes, there won't be any new shipments for the Empire for some time, but the order will be restored soon. And I am sure the Empire would be very interested to know why does House Redoran think it can just interrupt ebony trade because of some childish grudge."
+      },
+      {
+        "id": "HR_CalderaDisrupt_Redoran",
+        "conditions": [
+          { "type": "faction", "value": "Redoran" }
+        ],
+        "text": "One of my friends says that you were behind the recent shutdown of Caldera ebony mines. Good job, %PCRank. It is just the first step on the way to stopping Hlaalu and their dubious business in our own lands of the West Gash."
+      },
+      {
+        "id": "HR_CalderaDisrupt_Telvanni",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" }
+        ],
+        "text": "I hear that House Hlaalu was dealt quite a blow when its mining operations in Caldera have been shut down, and by someone from House Redoran no less! I never thought the Reds had it in them, but it seems I was wrong. Could they have learned a few tricks from Hlaalu during all this ridiculous quarrel over ebony?"
+      }
+    ],
+    "HR_DagothTanis": [
+      {
+        "id": "HR_DagothTanis_Commoner",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" }
+        ],
+        "text": "Hlaalu and Telvanni love proclaiming that House Redoran is not as noble as it was and is now more interested in hoarding wealth than in the well-being of the Dunmer. And yet it is House Redoran who had dealt with the ash monsters from Falasmaryon, and not the Yellows or the Browns."
+      },
+      {
+        "id": "HR_DagothTanis_Hlaalu",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" }
+        ],
+        "text": "Even with all its recent misfortunes, one has to agree that House Redoran still can protect the people of Morrowind. I am glad to hear that they have cleared Falasmaryon of those ash monsters, although it is rather unfortunate news if they had indeed lost a Buoyant Armiger at that cursed place."
+      },
+      {
+        "id": "HR_DagothTanis_Redoran",
+        "conditions": [
+          { "type": "faction", "value": "Redoran" }
+        ],
+        "text": "Irer Nervion was an honorable man and a skilled warrior, and now he can take his place among his ancestors. Thank you for avenging his demise and killing that ash creature who dared to take over Falasmaryon."
+      },
+      {
+        "id": "HR_DagothTanis_Telvanni",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" }
+        ],
+        "text": "House Redoran had sent just one man, albeit a Buoyant Armiger, to deal with the ash creatures in the abandoned Falasmaryon fortress in the middle of the Ashlands. And when the Armiger did not return, they ordered another poor soul to complete his mission. Don't you find it ridiculous that Redorans can dispatch an entire troop to take over a small Telvanni base yet they cannot afford the same force to stop a much more serious threat to their own people?"
+      }
+    ],
+    "HR_AttackUvirith": [
+      {
+        "id": "HR_AttackUvirith_Commoner",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" }
+        ],
+        "text": "People are talking about the recent escalation in the conflict between Redorans and Telvanni. The mage who claimed the site of Uvirith's Grave and built a tower there was found dead in her own chambers, apparently killed by some Red. House Redoran used to target smaller Telvanni bases, but this attack is different. I can't believe that the Telvanni will let it go."
+      },
+      {
+        "id": "HR_AttackUvirith_Hlaalu",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" }
+        ],
+        "text": "I wonder what will be the response from House Telvanni to the recent attack on Tel Uvirith by House Redoran. The Browns are very individualistic, so no wonder they did not seem to care much about Reds attacking unauthorized Telvanni bases across Vvardenfell. But Tel Uvirith was the largest and most prominent, although still illegal, of the recently claimed Telvanni bases. I cannot imagine the mages are going to just ignore the murder of Reynel Uvirith."
+      },
+      {
+        "id": "HR_AttackUvirith_Redoran",
+        "conditions": [
+          { "type": "faction", "value": "Redoran" }
+        ],
+        "text": "House Redoran does not enjoy fighting with other Great Houses over territories, but we have to protect our interests here on Vvardenfell. Telvanni have been ignoring our warnings for too long, but hopefully your expedition to Tel Uvirith had sent a clear message to those blasphemous necromancers."
+      },
+      {
+        "id": "HR_AttackUvirith_Telvanni",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" }
+        ],
+        "text": "It is true that the recent attack on Tel Uvirith is not like any other Redoran attempt at pushing back Telvanni expansion. If the Reds think that the murder of Reynel Uvirith will stop us, then they are even more arrogant than you could think. House Redoran has no business in Molag Amur and should concentrate instead on keeping ash monsters inside the Ghostfence."
+      }
+    ],
+    "HR_AttackRethan": [
+      {
+        "id": "HR_AttackRethan_Commoner",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" }
+        ],
+        "text": "You cannot deny that House Redoran is very consistent. They have been fighting Telvanni illegal expansion both on the Grand Council and in the field, but they also do not hesitate to keep Hlaalu in check as well, judging by the recent killing of a Yellow lord on the Odai Plateau. Their efforts will either make other Great Houses to accept the law or lead to an open House War. I hope it won't come to the latter, though."
+      },
+      {
+        "id": "HR_AttackRethan_Hlaalu",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" }
+        ],
+        "text": "Bad news from Balmora. Apparently, some Redoran barged into Rethan Manor on the Odai Plateau and killed Raynasa Rethan. The Reds probably thought that House Hlaalu will tolerate their attacks the same way House Telvanni does. They are wrong. One thing I do not understand though: why not hire the Morag Tong to do all this dirty work? Has House Redoran spent all its riches on buying ebony armor and decorating their underground manors?"
+      },
+      {
+        "id": "HR_AttackRethan_Redoran",
+        "conditions": [
+          { "type": "faction", "value": "Redoran" }
+        ],
+        "text": "I cannot believe how ignorant House Hlaalu is. They know perfectly well that we the Redorans are not going to allow any illegal expansion on Vvardenfell. They must have heard about our attack on the Telvanni base at the site of Uvirith's Grave. And yet Hlaalu nobles have been insisting on claiming land and building strongholds such as Rethan Manor without the Duke's permission. I am sure you did not enjoy killing Raynasa Rethan, but the law must be upheld."
+      },
+      {
+        "id": "HR_AttackRethan_Telvanni",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" }
+        ],
+        "text": "Everyone knows that House Redoran hates the expansion of other Houses and is not afraid to use force to clear any illegal bases and strongholds. They even killed one of our most promising mages, Reynel Uvirith. And yet Hlaalu Raynasa Rethan ignored all that and kept living in her illegal manor on the Odai Plateau, until some Redoran barged in and killed her too. I sometimes wonder how is it possible for House Hlaalu to tolerate such blatant stupidity of some of its high-ranking members."
+      }
+    ],
+    "HR_LostBanner": [
+      {
+        "id": "HR_LostBanner_Hlaalu",
+        "conditions": [
+          { "type": "faction", "value": "Hlaalu" }
+        ],
+        "text": "It is troubling to hear that a party of Redoran soldiers has been killed by bandits at the ancient stronghold of Andasreth. You would expect a very different outcome, given the recent Redoran attacks on the Telvanni, who are much more dangerous enemies than some bandits in the middle of nowhere."
+      },
+      {
+        "id": "HR_LostBanner_Redoran",
+        "conditions": [
+          { "type": "faction", "value": "Redoran" }
+        ],
+        "text": "People are saying you were the one who recovered the shields of Redoran men-at-arms sent to Andasreth, may their spirit rest among the ancestors. I am sure their families are very grateful to you for risking your own life going to the stronghold and bringing your brethren's shields."
+      },
+      {
+        "id": "HR_LostBanner_Telvanni",
+        "conditions": [
+          { "type": "faction", "value": "Telvanni" }
+        ],
+        "text": "Have you heard? A troop of Redoran soldiers has been killed by the same bandits they were sent to deal with. Isn't it alarming that the Reds keep harassing Telvanni mages while not being able to protect their own territories from some lowlifes?"
+      }
+    ],
+    "HR_CowardDisgrace": [
+      {
+        "id": "HR_CowardDisgrace_Commoner",
+        "conditions": [
+          { "type": "faction", "value": "NOT_GREAT_HOUSE" },
+          { "type": "cell", "value": "Vivec" }
+        ],
+        "text": "It looked like the ancient tradition of dueling as a way to resolve conflicts had started to die out. Even some Redorans have been refusing to duel. But now I hear that one of them came to his senses and faced his Hlaalu challenger in the Arena."
+      },
+      {
+        "id": "HR_CowardDisgrace_Redoran",
+        "conditions": [
+          { "type": "faction", "value": "Redoran" }
+        ],
+        "text": "You convinced Rothis Nethan to fight for his honor in the Vivec arena. I thought that these are surely dark times for House Redoran if one of our own refuses a duel. Yet you give me hope that this is not true."
+      }
+    ],
+    "HR_SixthHouseBase": [
+      {
+        "id": "HR_SixthHouseBase_Commoner",
+        "conditions": [
+          { "type": "faction", "comparator": "!=", "value": "Redoran" },
+          { "type": "cell", "value": "Ald-ruhn" }
+        ],
+        "text": "I cannot believe that Hanarai Assutlanipal was another one of these Sixth House fanatics. She kept mostly to herself, but nobody would ever thought that she was behind the bizarre and twisted dreams many of us were having lately. I doubt that she was indeed an Ashlander as she claimed -- they hate everything that has to do with the Sixth House."
+      },
+      {
+        "id": "HR_SixthHouseBase_Redoran",
+        "conditions": [
+          { "type": "faction", "value": "Redoran" },
+          { "type": "cell", "value": "Ald-ruhn" }
+        ],
+        "text": "You cleared Varvur Sarethi's name and brought Hanarai Assutlanipal to justice. Some of my friends might have started to forget what it means to be a Redoran, but I hope your actions have reminded them about our values."
+      }
     ]
   }
 }
