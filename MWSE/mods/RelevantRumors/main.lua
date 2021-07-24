@@ -93,7 +93,7 @@ local function randomizeResponse(responseCandidates)
     end
 
     local leastRecentUsageTime = os.clock()
-    local selectedResponseIndex = nil
+    local selectedCandidateIndex = nil
 
     for candidateIndex, responseCandidate in pairs(responseCandidates) do
         local lastUsageTime = responseLastUsedAt[getLastUsedResponseKey(responseCandidate.questId,
@@ -105,19 +105,19 @@ local function randomizeResponse(responseCandidates)
 
         if (lastUsageTime <= leastRecentUsageTime) then
             leastRecentUsageTime = lastUsageTime
-            selectedResponseIndex = candidateIndex
+            selectedCandidateIndex = candidateIndex
         end
     end
 
     printDebugMessage("Response candidates", responseCandidates)
     printDebugMessage("Last usage time", responseLastUsedAt)
-    printDebugMessage("Least recent response index", selectedResponseIndex)
+    printDebugMessage("Least recent response index", selectedCandidateIndex)
 
-    if (selectedResponseIndex == nil) then
-        selectedResponseIndex = math.random(table.size(responseCandidates))
+    if (selectedCandidateIndex == nil) then
+        selectedCandidateIndex = math.random(table.size(responseCandidates))
     end
 
-    return responseCandidates[selectedResponseIndex]
+    return responseCandidates[selectedCandidateIndex]
 end
 
 local function getResponseCandidates(mobileActor)
