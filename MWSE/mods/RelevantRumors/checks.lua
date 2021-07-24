@@ -3,9 +3,9 @@ local QUEST_COMPLETED_INDEX = 100
 
 local function checkCell(condition, actorCell)
     if (condition.comparator == '!=') then
-        return not string.startswith(actorCell, condition.value)
+        return not string.startswith(actorCell.id, condition.value)
     else
-        return string.startswith(actorCell, condition.value)
+        return string.startswith(actorCell.id, condition.value)
     end
 end
 
@@ -46,9 +46,14 @@ local function checkDead(condition)
 end
 
 local function checkQuestCompleted(condition)
-    local isCompleted = tes3.getJournalIndex({
+    local completedIndex = condition.completedIndex
+    if (not completedIndex) then
+        completedIndex = QUEST_COMPLETED_INDEX
+    end
+    local journalIndex = tes3.getJournalIndex({
         id = condition.value
-    }) >= QUEST_COMPLETED_INDEX
+    })
+    local isCompleted = journalIndex ~= nil and journalIndex >= completedIndex
     if (condition.comparator == "not_completed") then
         return not isCompleted
     else
@@ -60,7 +65,16 @@ local function checkJournalStage(condition)
     local questStage = tes3.getJournalIndex({
         id = condition.questId
     })
-    return questStage == condition.value
+    if (questStage == nil) then
+        return false
+    end
+    if (condition.comparator == '<=') then
+        return questStage <= condition.value
+    elseif (condition.comparator == '>=') then
+        return questStage >= condition.value
+    else
+        return questStage == condition.value
+    end
 end
 
 local function checkPCSex(condition)
@@ -98,6 +112,24 @@ local function checkPCRankDifference(condition, actor)
     end
 end
 
+local function checkRace(condition, actorRace)
+    local matchesRace = actorRace.name == condition.value
+
+    if (condition.comparator == "!=") then
+        return not matchesRace
+    end
+
+    return matchesRace
+end
+
+local function checkRegion(condition, actorCell)
+    if (actorCell.isInterior or not actorCell.region) then
+        return false
+    end
+
+    return actorCell.region.name == condition.value
+end
+
 this.checkCell = checkCell
 this.checkFaction = checkFaction
 this.checkDead = checkDead
@@ -106,5 +138,7 @@ this.checkJournalStage = checkJournalStage
 this.checkPCSex = checkPCSex
 this.checkPCRank = checkPCRank
 this.checkPCRankDifference = checkPCRankDifference
+this.checkRace = checkRace
+this.checkRegion = checkRegion
 
 return this

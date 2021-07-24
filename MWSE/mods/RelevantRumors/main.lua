@@ -9,7 +9,8 @@ local DEBUG = false
 local MOD_NAME = 'Relevant Rumors.esp'
 local QUEST_COMPLETED_INDEX = 100
 local shouldInvalidateCache = false
-local prevResponseGlobalVarName = nil
+local prevResponseQuestId = nil
+local prevResponseIndex = nil
 
 local responseLastUsedAt = {}
 
@@ -29,6 +30,10 @@ end
 
 local function getQuestRumor(questId, filters)
     local responsesPool = config.responses[questId]
+
+    if (filters.actor.disposition < 40) then
+        return nil
+    end
 
     for responseIndex, responseMeta in pairs(responsesPool) do
         local responseMatches = true
@@ -55,6 +60,10 @@ local function getQuestRumor(questId, filters)
                 conditionMatches = checks.checkPCRank(condition)
             elseif (checkType == 'pcRankDifference') then
                 conditionMatches = checks.checkPCRankDifference(condition, filters.actor)
+            elseif (checkType == 'race') then
+                conditionMatches = checks.checkRace(condition, filters.actor.race)
+            elseif (checkType == 'region') then
+                conditionMatches = checks.checkRegion(condition, filters.actorCell)
             else
             end
             -- printDebugMessage("Check '" .. checkType .. "':", conditionMatches)
@@ -74,16 +83,21 @@ local function getGlobalVarName(questId)
     return "RE_" .. questId .. "_Response"
 end
 
+local function getLastUsedResponseKey(questId, responseIndex)
+    return questId .. "__" .. responseIndex
+end
+
 local function randomizeResponse(responseCandidates)
     if (not responseCandidates) then
         return nil
     end
 
     local leastRecentUsageTime = os.clock()
-    local selectedResponseIndex = nil
+    local selectedCandidateIndex = nil
 
-    for idx, responseCandidate in pairs(responseCandidates) do
-        local lastUsageTime = responseLastUsedAt[getGlobalVarName(responseCandidate.questId)]
+    for candidateIndex, responseCandidate in pairs(responseCandidates) do
+        local lastUsageTime = responseLastUsedAt[getLastUsedResponseKey(responseCandidate.questId,
+            responseCandidate.responseIndex)]
 
         if (lastUsageTime == nil) then
             lastUsageTime = 0
@@ -91,25 +105,25 @@ local function randomizeResponse(responseCandidates)
 
         if (lastUsageTime <= leastRecentUsageTime) then
             leastRecentUsageTime = lastUsageTime
-            selectedResponseIndex = idx
+            selectedCandidateIndex = candidateIndex
         end
     end
 
     printDebugMessage("Response candidates", responseCandidates)
     printDebugMessage("Last usage time", responseLastUsedAt)
-    printDebugMessage("Least recent response index", selectedResponseIndex)
+    printDebugMessage("Least recent response index", selectedCandidateIndex)
 
-    if (selectedResponseIndex == nil) then
-        selectedResponseIndex = math.random(table.size(responseCandidates))
+    if (selectedCandidateIndex == nil) then
+        selectedCandidateIndex = math.random(table.size(responseCandidates))
     end
 
-    return responseCandidates[selectedResponseIndex]
+    return responseCandidates[selectedCandidateIndex]
 end
 
 local function getResponseCandidates(mobileActor)
     local responseCandidates = {}
     local responseCandidatesCount = 1
-    local actorCell = mobileActor.cell.id
+    local actorCell = mobileActor.cell
 
     for questId, questResponses in pairs(config.responses) do
         local isCompleted = tes3.getJournalIndex({
@@ -123,7 +137,7 @@ local function getResponseCandidates(mobileActor)
             })
             if (questRumorIndex) then
                 responseCandidates[responseCandidatesCount] = {}
-                responseCandidates[responseCandidatesCount].index = questRumorIndex
+                responseCandidates[responseCandidatesCount].responseIndex = questRumorIndex
                 responseCandidates[responseCandidatesCount].questId = questId
                 responseCandidatesCount = responseCandidatesCount + 1
             end
@@ -150,14 +164,19 @@ local function onJournalUpdate(e)
     end
 end
 
+local function hasPrevResponse()
+    return prevResponseQuestId ~= nil and prevResponseQuestId ~= nil
+end
+
 local function pickRandomRumor(e)
     if (not e.newlyCreated) then
         return
     end
 
-    if (prevResponseGlobalVarName) then
-        tes3.setGlobal(prevResponseGlobalVarName, 0)
-        prevResponseGlobalVarName = nil
+    if (hasPrevResponse()) then
+        tes3.setGlobal(getGlobalVarName(prevResponseQuestId), 0)
+        prevResponseQuestId = nil
+        prevResponseIndex = nil
     end
 
     if (shouldInvalidateCache) then
@@ -188,14 +207,15 @@ local function pickRandomRumor(e)
 
     if (selectedResponse) then
         local globalVarName = getGlobalVarName(selectedResponse.questId)
-        prevResponseGlobalVarName = globalVarName
-        tes3.setGlobal(globalVarName, selectedResponse.index)
+        prevResponseQuestId = selectedResponse.questId
+        prevResponseIndex = selectedResponse.responseIndex
+        tes3.setGlobal(globalVarName, selectedResponse.responseIndex)
     end
 end
 
 local function updateLastUsedResponse(e)
-    if (e.info.sourceMod == MOD_NAME and prevResponseGlobalVarName) then
-        responseLastUsedAt[prevResponseGlobalVarName] = os.clock()
+    if (e.info.sourceMod == MOD_NAME and hasPrevResponse()) then
+        responseLastUsedAt[getLastUsedResponseKey(prevResponseQuestId, prevResponseIndex)] = os.clock()
     end
 end
 
