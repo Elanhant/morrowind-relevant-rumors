@@ -853,7 +853,7 @@
           { "type": "dead", "comparator": "!=", "value": "odral helvi"},
           { "type": "dead", "comparator": "!=", "value": "stlennius vibato"}
         ],
-        "text": "They say that the Caldera ebony mines have been shut down after a slave revolt. House Redoran was behind it, if you believe the rumors. A bit uncharacteristic for them, but also effective. The Hlaalu will need some time to find new workforce, and I can't imagine the Empire will be happy about this delay."
+        "text": "They say that the Caldera ebony mines have been shut down after a slave revolt. House Redoran was behind it, if you believe the rumors. A bit uncharacteristic for them, but also effective. The Hlaalu will need some time to find new workforce, and I cannot imagine the Empire will be happy about this delay."
       },
       {
         "id": "HR_CalderaDisrupt_CommonerMurder",
@@ -863,7 +863,7 @@
           { "type": "dead", "value": "odral helvi"},
           { "type": "dead", "value": "stlennius vibato"}
         ],
-        "text": "They say that the Caldera ebony mines have been shut down after Hlaalu mine operators have been killed by someone from House Redoran. It is a risky move, and will certainly sour the relationship with House Hlaalu even further, but it is also very effective. The Hlaalu will need some time to find experienced operators, and I can't imagine the Empire will be happy about this delay."
+        "text": "They say that the Caldera ebony mines have been shut down after Hlaalu mine operators have been killed by someone from House Redoran. It is a risky move, and will certainly sour the relationship with House Hlaalu even further, but it is also very effective. The Hlaalu will need some time to find experienced operators, and I cannot imagine the Empire will be happy about this delay."
       },
       {
         "id": "HR_CalderaDisrupt_Hlaalu",
@@ -923,7 +923,7 @@
         "conditions": [
           { "type": "faction", "value": "NOT_GREAT_HOUSE" }
         ],
-        "text": "People are talking about the recent escalation in the conflict between Redorans and Telvanni. The mage who claimed the site of Uvirith's Grave and built a tower there was found dead in her own chambers, apparently killed by some Red. House Redoran used to target smaller Telvanni bases, but this attack is different. I can't believe that the Telvanni will let it go."
+        "text": "People are talking about the recent escalation in the conflict between Redorans and Telvanni. The mage who claimed the site of Uvirith's Grave and built a tower there was found dead in her own chambers, apparently killed by some Red. House Redoran used to target smaller Telvanni bases, but this attack is different. I do not believe the Telvanni will let it go."
       },
       {
         "id": "HR_AttackUvirith_Hlaalu",
