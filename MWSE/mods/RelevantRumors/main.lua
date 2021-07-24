@@ -3,11 +3,11 @@ local cache = require("RelevantRumors.cache")
 local checks = require("RelevantRumors.checks")
 local debug = require("RelevantRumors.debug")
 
-local RUMOR_CHANCE = 100
-local DEBUG = true
+local RUMOR_CHANCE = 50
+local DEBUG = false
 
 local MOD_NAME = 'Relevant Rumors.esp'
-local QUEST_COMPLETED_INDEX = 50
+local QUEST_COMPLETED_INDEX = 100
 local shouldInvalidateCache = false
 local prevResponseQuestId = nil
 local prevResponseIndex = nil
